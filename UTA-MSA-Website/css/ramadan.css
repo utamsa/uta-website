@@ -1,0 +1,81 @@
+:root {
+  --blue: #123c66;
+  --orange: #ef7d1a;
+  --ink: #0c1016;
+  --bg: #ffffff;
+  --white: #fff;
+  --header-h: 72px;
+}
+
+body {
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding-top: var(--header-h);
+  color: var(--ink);
+}
+
+/* Container with blurred wallpaper background */
+.coming-soon-container {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* move text upward */
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 15vh; /* push down from top slightly for balance */
+}
+
+/* Background image */
+.coming-soon-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/MSA-Homescreen-wallpaper.png");
+  background-size: cover;
+  background-position: center 40%; /* shifted up */
+  z-index: -2;
+}
+
+
+/* Blur + white overlay */
+.coming-soon-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
+/* Big heading */
+.coming-soon-container h1 {
+  font-size: 6rem;
+  font-weight: 300;
+  color: var(--blue);
+  margin-bottom: 5px; /* gap between heading and subtext */
+  line-height: 1.2;
+}
+
+/* Subtext */
+.coming-soon-container p {
+  font-size: 1.3rem;
+  color: #555;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .coming-soon-container {
+    padding-top: 20vh; /* adjust spacing for smaller screens */
+  }
+  .coming-soon-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+  }
+  .coming-soon-container p {
+    font-size: 1rem;
+  }
+}

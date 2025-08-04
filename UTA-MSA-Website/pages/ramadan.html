@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramadan - MSA at UTA</title>
+    <link rel="stylesheet" href="../css/ramadan.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+</head>
+
+<body>
+
+    <!-- Navbar fragment -->
+    <div data-include="fragments/navBar.html"></div>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon-container">
+        <h1>Coming Soon</h1>
+        <p>More information regarding Ramadan'26 will come out Winter 2025</p>
+    </section>
+
+    <!-- Fragment Loader -->
+    <script>
+        (async () => {
+            const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+                const file = el.getAttribute('data-include');
+                const url = new URL(file, window.location.href).href;
+                try {
+                    const res = await fetch(url, { cache: 'no-store' });
+                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+                    el.outerHTML = await res.text();
+                } catch (e) {
+                    el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+                }
+            });
+            await Promise.all(tasks);
+            document.dispatchEvent(new Event('fragments:ready'));
+        })();
+    </script>
+
+    <script src="../script/navBar.js"></script>
+
+</body>
+</html>
