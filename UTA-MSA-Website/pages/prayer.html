@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MSA UT Arlington — Prayer</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/prayer.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div data-include="./fragments/navBar.html"></div>
+
+  <main role="main">
+    <!-- Hero (full-screen) -->
+    <section id="hero" class="section hero" style="--hero-bg:url('../assets/prayer/prayer2.jpg');">
+      <div class="hero-wrap">
+        <h1 class="page-title">UTA <span>Musallah</span></h1>
+        <p class="page-subhead">
+          Open for the 5 daily prayers, Jumu’ah (1:30 PM), study circles, and community lectures.
+        </p>
+
+        <!-- NEW: location + times buttons in the hero -->
+        <div class="actions hero-actions">
+          <a class="btn btn-primary"
+             href="https://maps.apple.com/?q=CAPPA%20South%20Building%20B%2C%20706%20Greek%20Row%20Dr%2C%20Arlington%2C%20TX%2076019"
+             target="_blank" rel="noopener">
+            Open in Maps
+          </a>
+          <a class="btn btn-ghost" href="#times">See Prayer Times</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Overview (text left, photo right) -->
+    <section id="overview" class="section">
+      <div class="container grid-2">
+        <div class="col">
+          <h2>Everyone’s welcome</h2>
+          <ul class="bullets">
+            <li>Daily: Fajr, Dhuhr, Asr, Maghrib, Isha</li>
+            <li>Jumu’ah: <strong>Fridays at 1:30 PM</strong></li>
+            <li>Regular lectures, halaqas, and student-led events</li>
+          </ul>
+
+          <div class="location">
+            <h3>Location</h3>
+            <p>
+              <strong>CAPPA South Building B</strong><br />
+              706 Greek Row Dr, Arlington, TX 76019
+            </p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="https://maps.apple.com/?q=CAPPA%20South%20Building%20B%2C%20706%20Greek%20Row%20Dr%2C%20Arlington%2C%20TX%2076019" target="_blank" rel="noopener">Open in Maps</a>
+              <a class="btn btn-ghost" href="#times">See Prayer Times</a>
+            </div>
+          </div>
+        </div>
+
+        <figure class="col media-card">
+          <img src="../assets/prayer/prayer.JPG" alt="Khutbah at UTA Musallah" />
+          <figcaption>Jumu’ah &amp; weekly programs held on campus.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Section 2: Prayer Times -->
+    <section id="times" class="section alt">
+  <div class="container" style="text-align:center;">
+    <h2>Prayer Times in Arlington</h2>
+    <p class="muted">Times follow the ISNA (North America) method.</p>
+
+    <div class="times-actions" style="justify-content:center;">
+      <a class="btn btn-primary"
+         href="https://www.islamicfinder.org/world/united-states/4671240/arlington-prayer-times/"
+         target="_blank" rel="noopener">
+        Live prayer times
+      </a>
+      <span class="note">Jumu’ah on campus is at <strong>1:30 PM</strong>.</span>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Section 3: Contact / Get Involved -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Questions or want to get involved?</h2>
+        <p class="muted">Reach out using the links below.</p>
+
+        <div class="contact-links">
+          <a href="https://www.instagram.com/msaatuta/" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="https://linktr.ee/utamsa?fbclid=PAZXh0bgNhZW0CMTEAAacuVvz82CzA3vH9tE8mU9gn_ngyqy3V6HAzFYRU1VjtCW7DWAqu3HfCwAaT2A_aem_fFNphC1Tmc95YxZPTdP1CQ" target="_blank" rel="noopener">
+            <i class="fas fa-link"></i> Linktree
+          </a>
+          <a href="mailto:utarlington.msa@gmail.com">
+            <i class="fas fa-envelope"></i> Email Us
+          </a>
+          <a href="https://chat.whatsapp.com/HQmjAMqPr8X6bpYwAs5oxD" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Brothers WhatsApp
+          </a>
+          <a href="https://chat.whatsapp.com/JZk121BlGr6D0RMQuZ48Sz" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Sisters WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fragment loader -->
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+        const file = el.getAttribute('data-include');
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event('fragments:ready'));
+    })();
+  </script>
+
+  <script src="../script/navBar.js"></script>
+</body>
+</html>
