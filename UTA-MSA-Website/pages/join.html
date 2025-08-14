@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MSA UT Arlington — Become a Member</title>
+
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/join.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div data-include="./fragments/navBar.html"></div>
+
+  <main role="main">
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="hero-wrap">
+        <p class="eyebrow">Join the Community</p>
+        <h1 class="title">Become a <span>Member</span></h1>
+        <p class="subhead">
+          Plug into salah, study circles, volunteering, socials, and Ramadan activities.
+          Membership is free—just tell us a little about you.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#form"><i class="fa-solid fa-user-plus"></i> Join now</a>
+          <a class="btn btn-ghost" href="#faq"><i class="fa-solid fa-circle-question"></i> How it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP FORM (CustomGForm embed) -->
+    <section id="form" class="section alt">
+      <div class="container grid-single">
+        <div class="card embed-card">
+          <h2 class="section-title">Member Information</h2>
+          <p class="muted center">Complete the short form below to get connected.</p>
+
+          <!-- Your provided embed (unchanged) -->
+          <div data-customgform="cmebzcyqp0003wnfvbpfdsbn7"></div>
+          <script async src="https://cdn.customgform.com/cgf.js"></script>
+
+          <!-- optional helper text -->
+          <p class="tiny muted center">Having issues? Email us at
+            <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>Is membership free?</summary>
+            <p>Yes—membership is free and open to UTA students and community supporters.</p>
+          </details>
+          <details>
+            <summary>How will you contact me?</summary>
+            <p>We’ll email key updates and send group-chat invites if you opted in.</p>
+          </details>
+          <details>
+            <summary>Can I volunteer?</summary>
+            <p>Absolutely! Mark your interests on the form and we’ll reach out with opportunities.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt">
+      <div class="container center">
+        <h2 class="section-title">Questions?</h2>
+        <p class="muted">We’re here to help—reach out anytime.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:utarlington.msa@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Email Us
+          </a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.instagram.com/msaatuta/">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://linktr.ee/utamsa">
+            <i class="fa-solid fa-link"></i> Linktree
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fragment loader -->
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+        const file = el.getAttribute('data-include');
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event('fragments:ready'));
+    })();
+  </script>
+
+  <script src="../script/navBar.js"></script>
+</body>
+</html>
