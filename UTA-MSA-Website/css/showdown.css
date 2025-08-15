@@ -79,3 +79,13 @@ body {
     font-size: 1rem;
   }
 }
+
+
+/* show a white border on all primary buttons */
+.btn-primary{
+  border-color:#fff;          /* make border visible */
+  border-width:3px;           /* match navbar thickness */
+  background-clip:padding-box;
+  -webkit-background-clip:padding-box; /* Safari */
+}
+.btn-primary:hover{ border-color:#fff; } /* keep on hover */

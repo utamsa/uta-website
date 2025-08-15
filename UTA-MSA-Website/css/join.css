@@ -86,3 +86,12 @@ summary{ cursor:pointer; font-weight:700; color:var(--blue); }
 @media (max-width:900px){
   .hero{ min-height:calc(56vh - 0px); }
 }
+
+/* show a white border on all primary buttons */
+.btn-primary{
+  border-color:#fff;          /* make border visible */
+  border-width:3px;           /* match navbar thickness */
+  background-clip:padding-box;
+  -webkit-background-clip:padding-box; /* Safari */
+}
+.btn-primary:hover{ border-color:#fff; } /* keep on hover */
