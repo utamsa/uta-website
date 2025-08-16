@@ -38,6 +38,9 @@ body{
   background-repeat:no-repeat;
   display:grid;
   place-items:stretch;
+
+  overflow:hidden;
+  isolation:isolate;
 }
 
 .hero-overlay{
@@ -190,3 +193,8 @@ body{
   -webkit-background-clip:padding-box; /* Safari */
 }
 .btn-primary:hover{ border-color:#fff; } /* keep on hover */
+
+/* keep hero layers below the footer */
+.hero{ isolation:isolate; overflow:hidden; }
+.hero-overlay{ z-index:0; }
+.hero-content{ position:relative; z-index:1; }

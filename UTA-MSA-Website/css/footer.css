@@ -9,19 +9,23 @@
 /* Make short pages push the footer to the bottom */
 html, body { height:100%; }
 body{
+  margin:0;                       /* NEW */
   display:flex;
   flex-direction:column;
   min-height:100vh;
+  overflow-x:hidden;              /* NEW: never allow sideways scroll */
 }
 
 /* ----- FOOTER (compact + mobile-safe) ----- */
 .site-footer{
-  margin-top:auto;                           /* stick to bottom */
+  margin-top:auto;                /* stick to bottom */
+  position:relative;              /* NEW */
+  z-index:10;                     /* NEW */
+  isolation:isolate;              /* NEW: separate stacking context */
   background:#0f172a;
   color:#e5e7eb;
   border-top:1px solid rgba(255,255,255,.06);
   box-shadow:0 -6px 18px rgba(0,0,0,.05);
-  overflow-x:hidden;                         /* never allow sideways scroll */
 }
 
 .footer-wrap{
@@ -29,7 +33,7 @@ body{
   margin-inline:auto;
   padding:18px 12px;
   display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));  /* columns can shrink */
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap:18px;
 }
 
@@ -72,8 +76,8 @@ body{
 }
 .contact-list a{
   display:flex; align-items:center; gap:8px;
-  width:100%; max-width:100%;                 /* prevent overflow */
-  box-sizing:border-box;                      /* include padding in width */
+  width:100%; max-width:100%;
+  box-sizing:border-box;
   color:#cbd5e1; text-decoration:none;
   background:#111827;
   border:1px solid rgba(255,255,255,.12);
@@ -93,7 +97,7 @@ body{
 /* Bottom copyright strip */
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,.08);
-  padding:10px 12px env(safe-area-inset-bottom);  /* iOS safe area */
+  padding:10px 12px env(safe-area-inset-bottom);
   text-align:center;
   color:#a8b1c0;
   font-size:.85rem;
@@ -108,13 +112,7 @@ body{
     grid-template-columns: repeat(2, minmax(0,1fr));
     gap:14px;
   }
-  .footer-col h4{ font-size:.95rem; }
-  .footer-col a{ font-size:.95rem; }
 }
-
 @media (max-width:560px){
   .footer-wrap{ grid-template-columns:1fr; }
-  .footer-col h4{ font-size:.95rem; }
-  .footer-col a{ font-size:.95rem; }
-  .contact-list a{ font-size:.95rem; }
 }
