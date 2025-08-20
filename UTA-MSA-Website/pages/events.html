@@ -1,51 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramadan - MSA at UTA</title>
-    <link rel="stylesheet" href="../css/ramadan.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MSA UT Arlington — Events</title>
 
+  <!-- Theme + fragments -->
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/events.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Small helpers specific to this page (calendar frame + toggles) -->
+  <style>
+    .calendar { width:min(1200px, 92vw); margin: 18px auto 0; padding: 0 0 24px; }
+    .view-toggle { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin: 0 0 14px; }
+    .toggle-btn{
+      appearance:none; border:1px solid rgba(18,60,102,.15); background:#f1f5f9;
+      color:#123c66; cursor:pointer; padding:10px 14px; border-radius:12px; font-weight:700;
+      transition:transform .12s ease, background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .toggle-btn:hover{ transform:translateY(-1px); }
+    .toggle-btn.active{
+      background:linear-gradient(90deg,#123c66,#ef7d1a); color:#fff; border-color:transparent;
+      box-shadow:0 10px 22px rgba(18,60,102,.18);
+    }
+    .cal-wrap{
+      position:relative; width:100%; height:clamp(520px, 76vh, 960px);
+      background:#fff; border:1px solid rgba(12,16,22,.08); border-radius:16px; overflow:hidden;
+      box-shadow:0 16px 40px rgba(0,0,0,.10);
+    }
+    .cal-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .cal-note{ color:#475569; font-size:.95rem; margin:.75rem 2px 0; }
+
+    /* Quick-links & highlights */
+    .quick-links{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .highlights{ width:min(1200px, 92vw); margin-inline:auto; display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+    .card{ background:#fff; border:1px solid rgba(12,16,22,.08); border-radius:16px; padding:18px; box-shadow:0 10px 24px rgba(0,0,0,.06); }
+    .card h3{ margin:4px 0 6px; color:#123c66; font-size:1.15rem; }
+    .card p{ margin:0; color:#334155; }
+    .badge{ display:inline-flex; align-items:center; gap:8px; font-weight:700; color:#0c1016; }
+    .badge i{ color:#ef7d1a; }
+    @media (max-width:900px){ .highlights{ grid-template-columns:1fr; } }
+  </style>
 </head>
 
 <body>
+  <!-- Navbar fragment -->
+  <div data-include="./fragments/navBar.html"></div>
 
-    <!-- Navbar fragment -->
-    <div data-include="fragments/navBar.html"></div>
+  <!-- HERO -->
+  <header id="hero" class="hero">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1 class="headline">Events & <span>Calendar</span></h1>
+      <p class="subhead">Stay in the loop with MSA programs, Jumu’ah, study circles, and campus meet-ups.</p>
 
-    <!-- Coming Soon Section -->
-    <section class="coming-soon-container">
-        <h1>Coming Soon</h1>
-        <p>More information regarding events will come out in the next few weeks</p>
+      <div class="actions">
+        <!-- Opens full Google Calendar UI -->
+        <a class="btn btn-primary"
+           href="https://calendar.google.com/calendar/r?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
+           target="_blank" rel="noopener">Open in Google Calendar</a>
 
-    </section>
+        <!-- Adds/subscribes to calendar -->
+        <a class="btn btn-ghost"
+           href="https://calendar.google.com/calendar/render?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
+           target="_blank" rel="noopener">Add to My Calendar</a>
+      </div>
+    </div>
+  </header>
 
-         <!-- Footer fragment (add this) -->
+  <!-- QUICK LINKS -->
+  <section id="quick" class="section alt center">
+    <div class="container">
+      <h2 class="section-title">Quick Links</h2>
+      <p class="muted tiny">Fast access to our calendar and event resources.</p>
+      <div class="quick-links" style="margin-top:10px">
+        <a class="btn btn-primary" href="#calendar"><i class="fa-regular fa-calendar"></i>View Calendar</a>
+        <a class="btn btn-ghost"
+           href="https://calendar.google.com/calendar/u/0?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
+           target="_blank" rel="noopener"><i class="fa-solid fa-plus"></i> Subscribe</a>
+        <!-- Public ICS feed (read-only) -->
+        <a class="btn btn-ghost"
+           href="https://calendar.google.com/calendar/ical/3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7%40group.calendar.google.com/public/basic.ics"
+           target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download .ics</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="section">
+    <div class="container">
+      <h2 class="section-title center">Highlights</h2>
+      <div class="highlights">
+        <article class="card">
+          <div class="badge"><i class="fa-solid fa-mosque"></i> Jumu’ah on Campus</div>
+          <h3>Every Friday • 1:30 PM</h3>
+          <p>Join us for Jumu’ah in the UTA Musallah. Come a bit early to find a spot and meet the community!</p>
+        </article>
+        <article class="card">
+          <div class="badge"><i class="fa-solid fa-book-quran"></i> Study Circles</div>
+          <h3>Weekly • Evenings</h3>
+          <p>Interactive halaqas covering faith, character, and seerah. All levels welcome—bring a friend.</p>
+        </article>
+        <article class="card">
+          <div class="badge"><i class="fa-solid fa-hand-holding-heart"></i> Service Projects</div>
+          <h3>Monthly • Weekends</h3>
+          <p>Volunteer with us around DFW—food drives, campus cleanups, and collaborative initiatives.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <main id="calendar" class="calendar" role="main" aria-label="UTA MSA Calendar">
+    <div class="view-toggle" role="tablist" aria-label="Calendar view">
+      <button class="toggle-btn active" data-mode="MONTH" role="tab" aria-selected="true">Month</button>
+      <button class="toggle-btn" data-mode="WEEK"  role="tab" aria-selected="false">Week</button>
+      <button class="toggle-btn" data-mode="AGENDA" role="tab" aria-selected="false">Agenda</button>
+    </div>
+
+    <div class="cal-wrap">
+      <iframe id="gcal-frame" title="UTA MSA Events Calendar" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <p class="cal-note">
+      Times are shown in Central Time (America/Chicago). Tap any event for details or to add it to your own calendar.
+    </p>
+  </main>
+
+  <!-- FAQ -->
+  <section id="faq" class="section alt">
+    <div class="container">
+      <h2 class="section-title center">FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Why don’t I see any events?</summary>
+          <p class="muted">Make sure the calendar is public and your view is set correctly. Try switching to the
+            Agenda view above. If issues persist, open the full calendar via the “Open in Google Calendar” button.</p>
+        </details>
+        <details>
+          <summary>How do I add this calendar to my phone?</summary>
+          <p class="muted">Tap “Add to My Calendar” above. On iPhone, you can also subscribe to the
+            <a href="https://calendar.google.com/calendar/ical/3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">.ics feed</a>.</p>
+        </details>
+        <details>
+          <summary>Who can attend MSA events?</summary>
+          <p class="muted">Everyone is welcome! Most events are open to all students and community members unless otherwise noted.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOLLOW -->
+  <section id="contact" class="section center">
+    <div class="container">
+      <h2 class="section-title">Questions or want to get involved?</h2>
+      <p class="muted tiny">Reach out using the links below.</p>
+      <div class="contact-links" style="margin-top:12px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="https://www.instagram.com/msaatuta/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a class="btn btn-ghost" href="https://linktr.ee/utamsa?fbclid=PAZXh0bgNhZW0CMTEAAacuVvz82CzA3vH9tE8mU9gn_ngyqy3V6HAzFYRU1VjtCW7DWAqu3HfCwAaT2A_aem_fFNphC1Tmc95YxZPTdP1CQ" target="_blank"><i class="fas fa-link"></i> Linktree</a>
+        <a class="btn btn-ghost" href="mailto:utarlington.msa@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/HQmjAMqPr8X6bpYwAs5oxD" target="_blank"><i class="fab fa-whatsapp"></i> Brothers WhatsApp</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/JZk121BlGr6D0RMQuZ48Sz" target="_blank"><i class="fab fa-whatsapp"></i> Sisters WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer fragment -->
   <div data-include="./fragments/footer.html"></div>
-  
-    <!-- Fragment Loader -->
-    <script>
-        (async () => {
-            const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
-                const file = el.getAttribute('data-include');
-                const url = new URL(file, window.location.href).href;
-                try {
-                    const res = await fetch(url, { cache: 'no-store' });
-                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-                    el.outerHTML = await res.text();
-                } catch (e) {
-                    el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
-                }
-            });
-            await Promise.all(tasks);
-            document.dispatchEvent(new Event('fragments:ready'));
-        })();
-    </script>
 
-    <script src="../script/navBar.js"></script>
+  <!-- Fragment loader -->
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+        const file = el.getAttribute('data-include');
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event('fragments:ready'));
+    })();
+  </script>
 
+  <!-- Calendar view toggle logic -->
+  <script>
+    // Use raw @ (let URL handle encoding)
+    const CAL_ID = "3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com";
+
+    const BASE = new URL("https://calendar.google.com/calendar/embed");
+    BASE.searchParams.set("src", CAL_ID);
+    BASE.searchParams.set("ctz", "America/Chicago");
+    BASE.searchParams.set("showTitle", "0");
+    BASE.searchParams.set("showTabs", "0");        // we provide our own toggles
+    BASE.searchParams.set("showPrint", "0");
+    BASE.searchParams.set("showCalendars", "0");
+
+    const frame = document.getElementById("gcal-frame");
+
+    function setMode(mode){
+      const u = new URL(BASE);
+      u.searchParams.set("mode", mode);            // MONTH | WEEK | AGENDA
+      frame.src = u.toString();
+      document.querySelectorAll(".toggle-btn").forEach(b=>{
+        const on = b.dataset.mode === mode;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-selected", on ? "true" : "false");
+      });
+    }
+
+    // Default: agenda on phones, month on larger screens
+    const defaultMode = matchMedia("(max-width: 640px)").matches ? "AGENDA" : "MONTH";
+    setMode(defaultMode);
+
+    // Attach clicks
+    document.querySelectorAll(".toggle-btn").forEach(b =>
+      b.addEventListener("click", () => setMode(b.dataset.mode))
+    );
+  </script>
+
+  <!-- Navbar JS after fragments -->
+  <script src="../script/navBar.js"></script>
 </body>
 </html>
