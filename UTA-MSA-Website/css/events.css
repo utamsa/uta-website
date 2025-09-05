@@ -173,6 +173,18 @@ body{
 /* Contact / follow */
 .contact-links a{ min-width:210px }
 
+/*event flyer*/
+.event-flyer {
+  width: 100%;
+  max-width: 420px;   /* keeps it Instagram size */
+  height: auto;       /* keeps natural flyer ratio */
+  border-radius: 12px;
+  margin: 0 auto 12px;
+  display: block;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
 /* Mobile tweaks */
 @media (max-width:900px){
   .hero{ background-position:left 52% }

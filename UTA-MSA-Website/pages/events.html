@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <!-- Small helpers specific to this page (calendar frame + toggles) -->
+  <!-- Page-specific styles -->
   <style>
     .calendar { width:min(1200px, 92vw); margin: 18px auto 0; padding: 0 0 24px; }
     .view-toggle { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin: 0 0 14px; }
@@ -42,6 +42,15 @@
     .badge{ display:inline-flex; align-items:center; gap:8px; font-weight:700; color:#0c1016; }
     .badge i{ color:#ef7d1a; }
     @media (max-width:900px){ .highlights{ grid-template-columns:1fr; } }
+
+    /* Upcoming events */
+    .upcoming-grid{ display:grid; gap:24px; grid-template-columns:1fr; margin-top:20px; }
+    .event-card{ background:#fff; border:1px solid rgba(12,16,22,.08); border-radius:16px; padding:18px; box-shadow:0 10px 24px rgba(0,0,0,.06); text-align:center; }
+    .event-flyer{ width:100%; border-radius:12px; margin-bottom:12px; }
+    .event-title{ font-size:1.2rem; color:#123c66; margin:8px 0 4px; }
+    .event-date{ color:#334155; margin:0 0 12px; }
+    .rsvp-form{ margin-top:14px; }
+    .hidden{ display:none; }
   </style>
 </head>
 
@@ -55,35 +64,26 @@
     <div class="hero-content">
       <h1 class="headline">Events & <span>Calendar</span></h1>
       <p class="subhead">Stay in the loop with MSA programs, Jumu’ah, study circles, and campus meet-ups.</p>
-
-      <div class="actions">
-        <!-- Opens full Google Calendar UI -->
-        <a class="btn btn-primary"
-           href="https://calendar.google.com/calendar/r?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
-           target="_blank" rel="noopener">Open in Google Calendar</a>
-
-        <!-- Adds/subscribes to calendar -->
-        <a class="btn btn-ghost"
-           href="https://calendar.google.com/calendar/render?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
-           target="_blank" rel="noopener">Add to My Calendar</a>
-      </div>
     </div>
   </header>
 
-  <!-- QUICK LINKS -->
-  <section id="quick" class="section alt center">
+  <!-- UPCOMING EVENTS -->
+  <section id="upcoming" class="section alt">
     <div class="container">
-      <h2 class="section-title">Quick Links</h2>
-      <p class="muted tiny">Fast access to our calendar and event resources.</p>
-      <div class="quick-links" style="margin-top:10px">
-        <a class="btn btn-primary" href="#calendar"><i class="fa-regular fa-calendar"></i>View Calendar</a>
-        <a class="btn btn-ghost"
-           href="https://calendar.google.com/calendar/u/0?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
-           target="_blank" rel="noopener"><i class="fa-solid fa-plus"></i> Subscribe</a>
-        <!-- Public ICS feed (read-only) -->
-        <a class="btn btn-ghost"
-           href="https://calendar.google.com/calendar/ical/3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7%40group.calendar.google.com/public/basic.ics"
-           target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download .ics</a>
+      <h2 class="section-title center">Upcoming Events</h2>
+      <p class="muted tiny center">Check out what’s coming up soon. RSVP below!</p>
+
+      <div class="upcoming-grid">
+        <!-- Field Day -->
+        <article class="event-card">
+          <img src="../assets/events/MSA2025-26_FieldDay.png" alt="Field Day Flyer" class="event-flyer"/>
+          <h3 class="event-title">UTA MSA 2025 Field Day</h3>
+          <p class="event-date">Tuesday, Sept 9 • 5:30 PM • Legacy Pavilion Picnic Area</p>
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -113,22 +113,40 @@
   </section>
 
   <!-- CALENDAR -->
-  <main id="calendar" class="calendar" role="main" aria-label="UTA MSA Calendar">
-    <div class="view-toggle" role="tablist" aria-label="Calendar view">
-      <button class="toggle-btn active" data-mode="MONTH" role="tab" aria-selected="true">Month</button>
-      <button class="toggle-btn" data-mode="WEEK"  role="tab" aria-selected="false">Week</button>
-      <button class="toggle-btn" data-mode="AGENDA" role="tab" aria-selected="false">Agenda</button>
-    </div>
+  <section id="calendar-section" class="section alt">
+    <div class="container">
+      <h2 class="section-title center">Calendar</h2>
+      <p class="muted tiny center">Fast access to our calendar and event resources.</p>
 
-    <div class="cal-wrap">
-      <iframe id="gcal-frame" title="UTA MSA Events Calendar" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <!-- Quick Links above calendar -->
+      <div class="quick-links" style="margin:16px 0">
+        <a class="btn btn-primary" href="#calendar"><i class="fa-regular fa-calendar"></i> View Calendar</a>
+        <a class="btn btn-ghost"
+           href="https://calendar.google.com/calendar/u/0?cid=3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com"
+           target="_blank" rel="noopener"><i class="fa-solid fa-plus"></i> Subscribe</a>
+        <a class="btn btn-ghost"
+           href="https://calendar.google.com/calendar/ical/3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7%40group.calendar.google.com/public/basic.ics"
+           target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download .ics</a>
+      </div>
 
-    <p class="cal-note">
-      Times are shown in Central Time (America/Chicago). Tap any event for details or to add it to your own calendar.
-    </p>
-  </main>
+      <main id="calendar" class="calendar" role="main" aria-label="UTA MSA Calendar">
+        <div class="view-toggle" role="tablist" aria-label="Calendar view">
+          <button class="toggle-btn active" data-mode="MONTH" role="tab" aria-selected="true">Month</button>
+          <button class="toggle-btn" data-mode="WEEK"  role="tab" aria-selected="false">Week</button>
+          <button class="toggle-btn" data-mode="AGENDA" role="tab" aria-selected="false">Agenda</button>
+        </div>
+
+        <div class="cal-wrap">
+          <iframe id="gcal-frame" title="UTA MSA Events Calendar" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <p class="cal-note">
+          Times are shown in Central Time (America/Chicago). Tap any event for details or to add it to your own calendar.
+        </p>
+      </main>
+    </div>
+  </section>
 
   <!-- FAQ -->
   <section id="faq" class="section alt">
@@ -137,8 +155,7 @@
       <div class="faq">
         <details>
           <summary>Why don’t I see any events?</summary>
-          <p class="muted">Make sure the calendar is public and your view is set correctly. Try switching to the
-            Agenda view above. If issues persist, open the full calendar via the “Open in Google Calendar” button.</p>
+          <p class="muted">Make sure the calendar is public and your view is set correctly. Try switching to the Agenda view above. If issues persist, open the full calendar via the “Open in Google Calendar” button.</p>
         </details>
         <details>
           <summary>How do I add this calendar to my phone?</summary>
@@ -160,7 +177,7 @@
       <p class="muted tiny">Reach out using the links below.</p>
       <div class="contact-links" style="margin-top:12px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a class="btn btn-primary" href="https://www.instagram.com/msaatuta/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a class="btn btn-ghost" href="https://linktr.ee/utamsa?fbclid=PAZXh0bgNhZW0CMTEAAacuVvz82CzA3vH9tE8mU9gn_ngyqy3V6HAzFYRU1VjtCW7DWAqu3HfCwAaT2A_aem_fFNphC1Tmc95YxZPTdP1CQ" target="_blank"><i class="fas fa-link"></i> Linktree</a>
+        <a class="btn btn-ghost" href="https://linktr.ee/utamsa" target="_blank"><i class="fas fa-link"></i> Linktree</a>
         <a class="btn btn-ghost" href="mailto:utarlington.msa@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
         <a class="btn btn-ghost" href="https://chat.whatsapp.com/HQmjAMqPr8X6bpYwAs5oxD" target="_blank"><i class="fab fa-whatsapp"></i> Brothers WhatsApp</a>
         <a class="btn btn-ghost" href="https://chat.whatsapp.com/JZk121BlGr6D0RMQuZ48Sz" target="_blank"><i class="fab fa-whatsapp"></i> Sisters WhatsApp</a>
@@ -192,14 +209,12 @@
 
   <!-- Calendar view toggle logic -->
   <script>
-    // Use raw @ (let URL handle encoding)
     const CAL_ID = "3829b628fb7826ae1317e90d0ceb01a699861ca1339348da612a20174cca3db7@group.calendar.google.com";
-
     const BASE = new URL("https://calendar.google.com/calendar/embed");
     BASE.searchParams.set("src", CAL_ID);
     BASE.searchParams.set("ctz", "America/Chicago");
     BASE.searchParams.set("showTitle", "0");
-    BASE.searchParams.set("showTabs", "0");        // we provide our own toggles
+    BASE.searchParams.set("showTabs", "0");
     BASE.searchParams.set("showPrint", "0");
     BASE.searchParams.set("showCalendars", "0");
 
@@ -207,7 +222,7 @@
 
     function setMode(mode){
       const u = new URL(BASE);
-      u.searchParams.set("mode", mode);            // MONTH | WEEK | AGENDA
+      u.searchParams.set("mode", mode);
       frame.src = u.toString();
       document.querySelectorAll(".toggle-btn").forEach(b=>{
         const on = b.dataset.mode === mode;
@@ -216,15 +231,27 @@
       });
     }
 
-    // Default: agenda on phones, month on larger screens
     const defaultMode = matchMedia("(max-width: 640px)").matches ? "AGENDA" : "MONTH";
     setMode(defaultMode);
 
-    // Attach clicks
     document.querySelectorAll(".toggle-btn").forEach(b =>
       b.addEventListener("click", () => setMode(b.dataset.mode))
     );
   </script>
+
+  <!-- RSVP Toggle Logic -->
+  <script>
+    document.querySelectorAll(".rsvp-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const form = btn.parentElement.querySelector(".rsvp-form");
+        form.classList.toggle("hidden");
+        btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
+      });
+    });
+  </script>
+
+  <!-- CustomGForm Script -->
+  <script async src="https://cdn.customgform.com/cgf.js"></script>
 
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
