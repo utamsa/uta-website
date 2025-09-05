@@ -185,6 +185,68 @@ body{
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
+/* Hero Section */
+.section.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #fff, #f9fafb);
+}
+
+.hero-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: #ef7d1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0c1016;
+  margin-bottom: 16px;
+}
+
+.title span {
+  color: #123c66;
+}
+
+.subhead {
+  color: #475569;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 50px; /* 🔥 extra spacing before next section */
+}
+
+/* Mobile HEro adjustments */
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subhead {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column; /* stack buttons vertically */
+    gap: 16px;
+    margin-bottom: 60px; /* 🔥 more breathing room on mobile */
+  }
+}
+
 /* Mobile tweaks */
 @media (max-width:900px){
   .hero{ background-position:left 52% }
