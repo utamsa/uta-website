@@ -121,17 +121,19 @@ body {
 @media (max-width:640px) {
   .title { font-size:2rem; }
   .subhead { font-size:1rem; }
+
   .hero-actions {
-    flex-direction:column;
-    gap:18px;
-    margin-top:20px;
-    margin-bottom:70px;
-    align-items:center;
+    flex-wrap: wrap;         /* allow wrapping instead of forcing column */
+    justify-content: center; /* keep centered */
+    gap: 14px;
+    margin-top: 20px;
+    margin-bottom: 50px;     /* slightly less spacing for tighter mobile */
   }
+
   .hero-actions .btn {
-    width:100%;
-    max-width:320px;
-    text-align:center;
+    flex: 1 1 auto;          /* let them shrink/grow */
+    max-width: 320px;        /* don’t get too wide */
+    text-align: center;
   }
 }
 
@@ -158,6 +160,22 @@ body {
 .toggle-btn.active {
   background:linear-gradient(90deg, var(--blue), var(--orange));
   color:#fff; border-color:transparent; box-shadow:0 10px 22px rgba(18,60,102,.20);
+}
+
+/* Consistent centering for sections */
+.section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Limit width of text blocks so they don’t look stretched */
+.subhead,
+.muted.tiny {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Calendar embed */
@@ -289,3 +307,5 @@ body {
 }
 
 html { scroll-behavior:smooth }
+
+
