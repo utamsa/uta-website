@@ -241,9 +241,17 @@ body{
   }
 
   .hero-actions {
-    flex-direction: column; /* stack buttons vertically */
-    gap: 16px;
-    margin-bottom: 60px; /* 🔥 more breathing room on mobile */
+    flex-direction: column;      /* stack vertically */
+    gap: 18px;                   /* add breathing room */
+    margin-top: 16px;            /* push off subhead */
+    margin-bottom: 70px;         /* more spacing to next section */
+  }
+
+  .hero-actions .btn {
+    width: 100%;                 /* full width buttons on mobile */
+    max-width: 320px;            /* but don’t get too wide */
+    margin-inline: auto;         /* keep them centered */
+    text-align: center;          /* make text centered inside */
   }
 }
 
