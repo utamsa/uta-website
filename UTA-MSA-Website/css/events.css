@@ -280,6 +280,23 @@ body {
   }
 }
 
+/* ===== Upcoming Events Grid ===== */
+.upcoming-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr); /* side-by-side on desktop */
+  justify-items: center;                 /* center each card */
+  width: min(1200px, 92vw);
+  margin: 20px auto 0;
+}
+
+/* Stack on mobile */
+@media (max-width: 640px) {
+  .upcoming-grid {
+    grid-template-columns: 1fr;          /* single column */
+  }
+}
+
 /* ✅ Mobile refinements */
 @media (max-width: 640px) {
   /* Highlights: center with a max width */
