@@ -179,21 +179,50 @@ body {
 }
 
 /* Calendar embed */
-.calendar { margin-top:4px }
+/* default: mobile/tablet */
+/* Default: mobile first */
+.calendar {
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;     /* start small for phones */
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .calendar {
+    max-width: 900px;   /* wider for tablets/small laptops */
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .calendar {
+    max-width: 1200px;  /* full desktop width */
+  }
+}
+
+
+/* Center the Google Calendar block itself */
 .cal-wrap {
-  position:relative;
-  width:100%;
-  height:clamp(520px, 76vh, 960px);
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(12,16,22,.08);
-  box-shadow:0 16px 40px rgba(0,0,0,.10);
-  background:#fff;
+  position: relative;
+  width: 100%;          /* fill the .calendar width */
+  height: clamp(520px, 76vh, 960px);
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(12,16,22,.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,.10);
+  background: #fff;
 }
 .cal-wrap iframe {
-  position:absolute; inset:0;
-  width:100%; height:100%; border:0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
+
 .cal-note {
   margin:.75rem 2px 0;
   color:#475569; font-size:.95rem;
@@ -205,11 +234,28 @@ body {
 
 /* Highlights grid */
 .highlights {
-  width:min(1200px,92vw);
-  margin-inline:auto;
-  display:grid; gap:16px;
-  grid-template-columns:repeat(3,1fr);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  justify-items: center;
+  width: min(1200px, 92vw);   /* desktop container */
+  margin: 0 auto;
 }
+
+/* Mobile: single column, cards full width */
+@media (max-width: 900px) {
+  .highlights {
+    grid-template-columns: 1fr;
+    width: 100%;              /* let it fill mobile width */
+    padding: 0 16px;          /* small side padding */
+  }
+  .highlights .card {
+    max-width: 100%;          /* allow cards to stretch full container */
+  }
+}
+
+
 .card {
   background:#fff; border:1px solid rgba(12,16,22,.08);
   border-radius:16px; padding:18px;
@@ -280,22 +326,33 @@ body {
   }
 }
 
+
+/* ===== Upcoming Events Grid ===== */
 /* ===== Upcoming Events Grid ===== */
 .upcoming-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(2, 1fr); /* side-by-side on desktop */
-  justify-items: center;                 /* center each card */
-  width: min(1200px, 92vw);
-  margin: 20px auto 0;
+  /* 1 column on mobile by default */
+  grid-template-columns: 1fr;
+  margin-top: 20px;
+  justify-content: center;
 }
 
-/* Stack on mobile */
-@media (max-width: 640px) {
+/* Desktop: show cards side by side */
+@media (min-width: 768px) {
   .upcoming-grid {
-    grid-template-columns: 1fr;          /* single column */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 1200px;
+    margin-inline: auto;
   }
 }
+
+.event-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+
 
 /* ✅ Mobile refinements */
 @media (max-width: 640px) {
