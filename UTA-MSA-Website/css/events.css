@@ -132,7 +132,7 @@ body {
 
   .hero-actions .btn {
     flex: 1 1 auto;          /* let them shrink/grow */
-    max-width: 320px;        /* don’t get too wide */
+    max-width: 320px;        /* donâ€™t get too wide */
     text-align: center;
   }
 }
@@ -170,7 +170,7 @@ body {
   text-align: center;
 }
 
-/* Limit width of text blocks so they don’t look stretched */
+/* Limit width of text blocks so they donâ€™t look stretched */
 .subhead,
 .muted.tiny {
   max-width: 65ch;
@@ -178,7 +178,7 @@ body {
   margin-right: auto;
 }
 
-/* Calendar embed */
+/* Calendar embed */ 
 /* default: mobile/tablet */
 /* Default: mobile first */
 .calendar {
@@ -303,7 +303,6 @@ body {
   .container,
   .section,
   .upcoming-grid,
-  .highlights,
   .calendar,
   .faq,
   .contact-links {
@@ -312,12 +311,14 @@ body {
     align-items: center;
   }
 
-  /* Center grid items and stack neatly */
-  .upcoming-grid,
+  /* Keep highlights as a grid, just center the cards */
   .highlights {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-items: center;
+  }
+
+  .highlights .card {
+    max-width: 360px;
+    margin: 0 auto 16px;
   }
 
   /* Buttons full-width but still neat */
@@ -325,6 +326,7 @@ body {
     margin-inline: auto;
   }
 }
+
 
 
 /* ===== Upcoming Events Grid ===== */
@@ -354,7 +356,7 @@ body {
 
 
 
-/* ✅ Mobile refinements */
+/* âœ… Mobile refinements */
 @media (max-width: 640px) {
   /* Highlights: center with a max width */
   .highlights .card {
@@ -380,6 +382,25 @@ body {
   }
 }
 
-html { scroll-behavior:smooth }
+/* === Hard-refresh mobile centering fix === */
+@media (max-width: 640px) {
+  .highlights,
+  .calendar {
+    display: flex !important;          /* force flex layout */
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
 
+  .highlights .card {
+    max-width: 360px;
+    width: 100%;
+  }
+}
+
+
+html { scroll-behavior:smooth }
 
