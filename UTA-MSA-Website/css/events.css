@@ -327,9 +327,25 @@ body {
   }
 }
 
+/* ===== RSVP button spacing ===== */
 
 
-/* ===== Upcoming Events Grid ===== */
+/* Extra spacing between RSVP button and the embedded form */
+.event-card .form-wrap {
+  margin-top: 16px;    /* space between button and form */
+}
+
+/* Optional: add some internal padding for nicer look */
+.event-card .form-wrap > div {
+  padding-top: 8px;
+}
+
+/* Hidden forms stay fully collapsed */
+.rsvp-form.hidden {
+  display: none;
+}
+
+
 /* ===== Upcoming Events Grid ===== */
 .upcoming-grid {
   display: grid;
