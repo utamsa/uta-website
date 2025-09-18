@@ -354,7 +354,11 @@ body {
   grid-template-columns: 1fr;
   margin-top: 20px;
   justify-content: center;
+
+  /* ✨ Add this line */
+  align-items: start;
 }
+
 
 /* Desktop: show cards side by side */
 @media (min-width: 768px) {
@@ -362,6 +366,9 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     max-width: 1200px;
     margin-inline: auto;
+
+    /* ✨ Add this line too */
+    align-items: start;
   }
 }
 
