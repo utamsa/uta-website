@@ -197,19 +197,34 @@
       <p class="muted tiny center">Check out what’s coming up soon.</p>
 
       <div class="upcoming-grid" style="grid-template-columns: repeat(auto-fit,minmax(280px,1fr));">
+
         <!-- Tacos & Trivia Flyer -->
         <article class="event-card">
           <img src="../assets/events/tacos-trivia.png" alt="Tacos & Trivia Flyer" class="event-flyer" />
-
           <h3 class="event-title">Tacos & Trivia</h3>
           <p class="event-date">
-            Thursday, Sept. 25 • 6-8 PM • SEIR 298
+            Thursday, Sept. 25 • 6–8 PM • SEIR 298
           </p>
-
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
             <div data-customgform="cmfq2d2qj00hewnkx73we7ubo"></div>
           </div>
+        </article>
+
+        <!-- 2nd General Body Meeting – Family Feud Flyer -->
+        <article class="event-card">
+          <img src="../assets/events/2nd-gbm-flyer.png" alt="General Body Meeting – Family Feud Flyer"
+            class="event-flyer" />
+          <h3 class="event-title">General Body Meeting – Family Feud</h3>
+          <p class="event-date">
+            Wednesday, October 1 • 12–1 PM • SEIR 298
+          </p>
+          <!-- RSVP removed
+        <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+        <div class="rsvp-form hidden">
+          <div data-customgform="YOUR_FORM_ID_HERE"></div>
+        </div>
+        -->
         </article>
 
         <!-- Blueprint Flyer -->
@@ -221,8 +236,8 @@
           </p>
           <!-- RSVP removed
         <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-         <div class="rsvp-form hidden">
-         <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
+        <div class="rsvp-form hidden">
+          <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
         </div>
         -->
         </article>
@@ -230,22 +245,22 @@
         <!-- Listeners Corner Flyer -->
         <article class="event-card">
           <img src="../assets/events/listeners-corner-flyer.png" alt="Listeners Corner Flyer" class="event-flyer" />
-
           <h3 class="event-title">Listeners Corner</h3>
           <p class="event-date">
             Wednesdays • Starting Sept. 24 • 11:30 AM • In front of the UC
           </p>
-
-          <!-- RSVP disabled
+          <!-- RSVP removed
         <button class="btn btn-primary rsvp-btn">RSVP Now</button>
         <div class="rsvp-form hidden">
           <div data-customgform="YOUR_FORM_ID_HERE"></div>
         </div>
         -->
         </article>
+
       </div>
     </div>
   </section>
+
 
 
   <!-- HIGHLIGHTS -->
@@ -425,6 +440,15 @@
 
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.querySelector(".upcoming-grid");
+    if (grid && grid.children.length >= 4) {
+      grid.classList.add("four-items");
+    }
+  });
+</script>
+
 </body>
 
 </html>
