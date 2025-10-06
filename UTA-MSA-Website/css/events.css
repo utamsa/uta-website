@@ -354,21 +354,32 @@ body {
   grid-template-columns: 1fr;
   margin-top: 20px;
   justify-content: center;
-
-  /* ✨ Add this line */
   align-items: start;
 }
 
+/* Four items or fewer: 4 columns on desktop */
+.upcoming-grid.four-items {
+  grid-template-columns: 1fr;
+}
 
-/* Desktop: show cards side by side */
 @media (min-width: 768px) {
-  .upcoming-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .upcoming-grid.four-items {
+    grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     margin-inline: auto;
+  }
+}
 
-    /* ✨ Add this line too */
-    align-items: start;
+/* More than 4 items: 3 columns on desktop */
+.upcoming-grid.more-items {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .upcoming-grid.more-items {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin-inline: auto;
   }
 }
 

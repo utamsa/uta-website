@@ -196,7 +196,7 @@
       <h2 class="section-title center">Upcoming Events</h2>
       <p class="muted tiny center">Check out what’s coming up soon.</p>
 
-      <div class="upcoming-grid" style="grid-template-columns: repeat(auto-fit,minmax(280px,1fr));">
+      <div class="upcoming-grid">
 
         <!-- Hands of Heritage -->
         <article class="event-card">
@@ -468,8 +468,19 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.querySelector(".upcoming-grid");
-      if (grid && grid.children.length >= 4) {
-        grid.classList.add("four-items");
+      if (grid) {
+        const eventCards = grid.querySelectorAll(".event-card");
+        const cardCount = eventCards.length;
+        
+        // Remove any existing classes
+        grid.classList.remove("four-items", "more-items");
+        
+        // Apply appropriate class based on event count
+        if (cardCount <= 4) {
+          grid.classList.add("four-items");
+        } else {
+          grid.classList.add("more-items");
+        }
       }
     });
   </script>
