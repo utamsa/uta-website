@@ -1,65 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramadan - MSA at UTA</title>
-    
-    <!-- 🟦 Favicons -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islam - MSA at UTA</title>
 
-    <!-- 🟨 Web App Manifest -->
-    <link rel="manifest" href="../assets/site.webmanifest">
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 
-    <!-- 🟥 Theme Colors -->
-    <meta name="theme-color" content="#0044cc">
-    <meta name="background-color" content="#ffffff">
-    
-    <link rel="stylesheet" href="../css/ramadan.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
+  <!-- Manifest + Theme -->
+  <link rel="manifest" href="../assets/site.webmanifest">
+  <meta name="theme-color" content="#0044cc" />
+  <meta name="background-color" content="#ffffff" />
 
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/islam.css" />
+  <script src="https://kit.fontawesome.com/a2e0f3d1f1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- Navbar -->
+  <div data-include="fragments/navBar.html"></div>
 
-    <!-- Navbar fragment -->
-    <div data-include="fragments/navBar.html"></div>
+  <!-- HERO -->
+  <section id="hero" class="section hero">
+    <div class="hero-wrap">
+      <p class="eyebrow">Welcome</p>
+      <h1 class="title">Discover the Beauty of <span>Islam</span></h1>
+      <p class="subhead">
+        Learn about the faith, the purpose, and the peace that Islam brings to the heart and community.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#learn">Learn More</a>
+        <a class="btn btn-ghost" href="#masjids">Masjids Nearby</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Coming Soon Section -->
-    <section class="coming-soon-container">
-        <h1>Coming Soon</h1>
-        <p>More information will come out in the next few weeks</p>
+  <!-- ABOUT ISLAM -->
+  <section id="learn" class="section alt">
+    <div class="container">
+      <h2 class="section-title center">What is Islam?</h2>
+      <p class="muted tiny center">
+        Islam is a way of life centered on peace, submission to Allah, and compassion for all creation.
+        Muslims believe in one God, the same Creator worshiped by Abraham, Moses, and Jesus (peace be upon them all).
+      </p>
 
-    </section>
+      <div class="goal">
+        <h3>The Goal of Islam</h3>
+        <p>
+          The goal of Islam is to live a life of awareness, worship, and service — developing good character, helping others,
+          and seeking closeness to Allah through sincerity and faith.
+        </p>
+      </div>
 
-         <!-- Footer fragment (add this) -->
-  <div data-include="./fragments/footer.html"></div>
-  
-    <!-- Fragment Loader -->
-    <script>
-        (async () => {
-            const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
-                const file = el.getAttribute('data-include');
-                const url = new URL(file, window.location.href).href;
-                try {
-                    const res = await fetch(url, { cache: 'no-store' });
-                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-                    el.outerHTML = await res.text();
-                } catch (e) {
-                    el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
-                }
-            });
-            await Promise.all(tasks);
-            document.dispatchEvent(new Event('fragments:ready'));
-        })();
-    </script>
+      <a class="btn btn-primary" href="https://quran.com/" target="_blank" rel="noopener">
+        <i class="fa-solid fa-book-quran"></i> Learn the Qur’an
+      </a>
 
-    <script src="../script/navBar.js"></script>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Core Belief</h3>
+          <p>Muslims believe in one God (Allah) and in all His prophets including Adam, Noah, Abraham, Moses, Jesus, and Muhammad (peace be upon them). The Qur’an is God’s final revelation.</p>
+        </article>
+        <article class="info-card">
+          <h3>Five Pillars</h3>
+          <p>Faith • Prayer • Charity • Fasting • Pilgrimage. These acts cultivate gratitude, service, and self‑discipline while benefiting the community.</p>
+        </article>
+        <article class="info-card">
+          <h3>Character & Service</h3>
+          <p>Islam emphasizes honesty, mercy, and uplifting others. Our programs center on learning, worship, and serving the campus and DFW community.</p>
+        </article>
+      </div>
 
+      <aside class="callout">
+        <div class="callout-body">
+          <h3 class="callout-title"><i class="fa-solid fa-ear-listen"></i> Listeners Corner</h3>
+          <p>Have questions or just want to talk? Visit our student‑run booth — <strong>Wednesdays • 11:30 AM • in front of the UC</strong>. Friendly peers listen, share resources, and help you explore Islam in a welcoming space.</p>
+          <a class="btn btn-ghost" href="/events#contact">See it on the Events page</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- MASJIDS NEARBY -->
+  <section id="masjids" class="section">
+    <div class="container">
+      <h2 class="section-title center">Masjids Nearby</h2>
+      <p class="muted tiny center">Local masjids you can visit around the DFW area</p>
+
+      <div class="masjid-grid-container">
+
+
+        <div class="masjid-card">
+          <img src="../assets/islam/Screenshot%202025-10-07%20at%2012.20.59%E2%80%AFPM.png" alt="Dar El-Quran">
+          <div class="masjid-content">
+            <h3>Dar El-Quran</h3>
+            <p><a class="btn btn-primary" target="_blank" href="https://maps.google.com/?q=110+N+Davis+Dr,+Arlington,+TX+76013">Open in Maps</a></p>
+            <p>Dar El‑Quran serves the Arlington community with Qur'an learning and regular programs.
+            <br><br>📍 <strong>Address:</strong> 110 N Davis Dr, Arlington, TX 76013
+            <br>📞 (945) 345-1571</p>
+          </div>
+        </div>
+        <div class="masjid-card">
+          <img src="../assets/Islam/unity.jpg" alt="Unity Islamic Center">
+          <div class="masjid-content">
+            <h3>Mansfield Masjid (Unity Islamic Center)</h3>
+            <p><a class="btn btn-primary" target="_blank" href="https://maps.google.com/?q=651+E+Debbie+Ln,+Building+400,+Mansfield,+TX+76063">Open in Maps</a></p>
+            <p>Located in the heart of Mansfield, Texas, Mansfield Masjid is a Sunni Islamic center dedicated to fostering unity, learning, and community. Established in 2019, the center offers programs and services in English for families, youth, and spiritual seekers of all backgrounds.<br><br>
+            📍 <strong>Address:</strong> 651 E Debbie Ln, Building 400, Mansfield, TX 76063</p>
+          </div>
+        </div>
+        <div class="masjid-card">
+          <img src="../assets/Islam/Alhedayah.jpg" alt="Al-Hedayah Masjid">
+          <div class="masjid-content">
+            <h3>Al-Hedayah Masjid</h3>
+            <p><a class="btn btn-primary" target="_blank" href="https://maps.google.com/?q=8625+Randol+Mill+Rd,+Fort+Worth,+TX+76120">Open in Maps</a></p>
+            <p>Located in Fort Worth, Texas, Al-Hedayah Masjid serves as a vibrant center for faith, education, and community connection. As part of Al-Hedayah Academy, the masjid aims to be a focal point for the surrounding Muslim community—enhancing understanding and acceptance of Islam through knowledge, compassion, and outreach.<br><br>
+            📍 <strong>Address:</strong> 8625 Randol Mill Rd, Fort Worth, TX 76120</p>
+          </div>
+        </div>
+
+        <div class="masjid-card">
+          <img src="../assets/Islam/DarElIslam.jpeg" alt="Dar Elsalam Islamic Center">
+          <div class="masjid-content">
+            <h3>Dar Elsalam Islamic Center</h3>
+            <p><a class="btn btn-primary" target="_blank" href="https://maps.google.com/?q=500+W+Road+to+Six+Flags+St,+Arlington,+TX+76011">Open in Maps</a></p>
+            <p>Located in Arlington, Texas, Dar Elsalam Islamic Center is a welcoming hub for faith, learning, and community. It strives to deepen understanding of Islam, promote unity, and build strong relationships through religious and educational programs.<br><br>
+            📍 <strong>Address:</strong> 500 W Road to Six Flags St, Arlington, TX 76011<br>
+            📞 +1 (817) 548-1700<br>
+            📧 info@darelsalam.org</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 class="section-title center">Islam FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>What does the word “Islam” mean?</summary>
+          <p class="muted">It means submission to God through love, obedience, and peace. A Muslim is one who submits to God.</p>
+        </details>
+        <details>
+          <summary>Do Muslims believe in Jesus?</summary>
+          <p class="muted">Yes — Jesus (ʿĪsā) is a revered prophet and the Messiah born miraculously to Mary. Muslims do not worship him; worship is for God alone.</p>
+        </details>
+        <details>
+          <summary>How can I start learning or visit a service?</summary>
+          <p class="muted">Start with the Qur’an at quran.com, join our <strong>Listeners Corner</strong> on Wednesdays by the UC, or visit any local masjid listed below. You are welcome!</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAS -->
+  <section id="duas" class="section alt">
+    <div class="container">
+      <h2 class="section-title center">Duas for Protection & Guidance</h2>
+      <p class="muted tiny center">Arabic text with English translation</p>
+
+      <div class="dua-grid">
+
+        <!-- ALL 13 DUAS -->
+        <article class="dua-card"><h3 class="dua-title">Dua for Protection</h3><p class="arabic">حَفیِظُ یاَ الوِرد<br>ھوَُ حَافظِاً خَیْرٌ فاَللهُ احِمِین ارَْحَمُ وَّ  الرَّ</p><hr><p class="translation">For ˹only˺ Allah is the best Protector, and He is the Most Merciful of the merciful.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Opening Invocation</h3><p class="arabic">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِیمِ</p><hr><p class="translation">In the Name of Allah—the Most Compassionate, Most Merciful.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Supreme Provider</h3><p class="arabic">انَِّ اللهَ ھوَُ الرَّزَّاقُ ذُو القوَُّةِ المَتِینُ</p><hr><p class="translation">Indeed, Allah ˹alone˺ is the Supreme Provider—Lord of all Power, Ever Mighty.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Dua from Prophet Musa (AS)</h3><p class="arabic">قاَلَ مُوسٰى مَا جِئْتُم بِھِ السِّحْرُ انَِّ اللهَ سَیُبْطِلُھُ انَِّ اللهَ لَا یُصْلِحُ عَمَلَ الْمُفْسِدِینَ وَیُحِقُّ اللهُ الْحَقَّ بِکَلِمَاتِھِ وَلَوْ کَرِهَ الْمُجْرِمُونَ</p><hr><p class="translation">Moses said, “What you have produced is mere magic; Allah will surely make it useless, for Allah does not set right the work of the corruptors.”</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Dua for Protection from Harm</h3><p class="arabic">بِسْمِ اللهِ الَّذِي لَا یَضُرُّ مَعَ اسْمِهِ شَیْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِیعُ الْعَلِیمُ</p><hr><p class="translation">In the name of Allah, with whose name nothing on earth or in the sky can cause harm; He is the All-Hearing, the All-Knowing.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Dua for Ease</h3><p class="arabic">اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا وَأَنْتَ تَجْعَلُ الْحَزَنَ إِذَا شِئْتَ سَهْلًا</p><hr><p class="translation">O Allah, there is no ease except what You make easy, and You can make difficulty easy if You will.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Invocation of the Ever-Living</h3><p class="arabic">یَا حَيُّ یَا قَيُّومُ بِدَیْمُومَةِ مُلْکِکَ وَبِقَائِکَ، یَا حَيُّ یَا حَيُّ یَا حَيُّ</p><hr><p class="translation">O Ever-Living, Ever-Lasting in Your Sovereignty and Existence. O Ever-Living, O Ever-Living, O Ever-Living.</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Seeking Refuge from Shaytan</h3><p class="arabic">أعُوذُ بِاللهِ مِنَ الشَّیْطَانِ الرَّجِیمِ وَقُلْ رَبِّ أَعُوذُ بِکَ مِنْ ھَمَزَاتِ الشَّیَاطِینِ وَأَعُوذُ بِکَ رَبِّ أَنْ یَحْضُرُونِ</p><hr><p class="translation">I seek refuge in Allah from the accursed devil. And say, “My Lord! I seek refuge in You from the temptations of the devils.”</p></article>
+
+        <article class="dua-card"><h3 class="dua-title">Dua for Protection from Evil</h3><p class="arabic">أعُوذُ بِکَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ وَمِنْ شَرِّ عِبَادِهِ وَمِنْ شَرِّ عَقِبِهِ وَعِقَابِهِ</p><hr><p class="translation">I seek refuge in the perfect words of Allah from the evil of what He has created and from harmful consequences.</p></article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div data-include="fragments/footer.html"></div>
+
+  <!-- Fragment Loader -->
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+        const file = el.getAttribute('data-include');
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event('fragments:ready'));
+    })();
+  </script>
+
+  <script src="../script/navBar.js"></script>
 </body>
 </html>
