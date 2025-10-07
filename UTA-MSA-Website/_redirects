@@ -1,0 +1,21 @@
+# Netlify Pretty URLs Configuration
+# This file removes .html extensions from URLs
+
+# Main redirect rule - serves .html files without showing .html in URL
+/*    /:splat.html   200
+
+# Specific redirects for your main pages
+/about    /about.html    200
+/events    /events.html    200
+/donation    /donation.html    200
+/islam    /islam.html    200
+/ramadan    /ramadan.html    200
+/showdown    /showdown.html    200
+/prayer    /prayer.html    200
+/join    /join.html    200
+
+# Home page redirect (if needed)
+/home    /home.html    200
+
+# Fallback for any unmatched routes
+/*    /pages/:splat.html    200
