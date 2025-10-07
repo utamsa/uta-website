@@ -1,10 +1,7 @@
-# ==========================
-#  Netlify Pretty URLs Setup
-#  MSA at UTA Website
-#  Removes both /pages/ and .html from URLs
-# ==========================
+# Netlify Pretty URLs - Simple Version
+# Remove .html extensions from URLs
 
-# --- Clean URLs for all pages ---
+# Specific page redirects
 /about      /pages/about.html        200
 /events     /pages/events.html       200
 /donation   /pages/donation.html     200
@@ -15,5 +12,5 @@
 /join       /pages/join.html         200
 /home       /pages/home.html         200
 
-# --- Catch-all rule for any other .html file inside /pages ---
+# Catch-all for any other pages
 /*          /pages/:splat.html       200
