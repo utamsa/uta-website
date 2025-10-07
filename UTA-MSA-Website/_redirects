@@ -1,0 +1,16 @@
+# Netlify Pretty URLs - Simple Version
+# Remove .html extensions from URLs
+
+# Specific page redirects
+/about      /pages/about.html        200
+/events     /pages/events.html       200
+/donation   /pages/donation.html     200
+/islam      /pages/islam.html        200
+/ramadan    /pages/ramadan.html      200
+/showdown   /pages/showdown.html     200
+/prayer     /pages/prayer.html       200
+/join       /pages/join.html         200
+/home       /pages/home.html         200
+
+# Catch-all for any other pages
+/*          /pages/:splat.html       200

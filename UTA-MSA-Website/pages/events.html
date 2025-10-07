@@ -5,6 +5,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MSA UT Arlington — Events</title>
+  
+  <!-- 🟦 Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <!-- 🟨 Web App Manifest -->
+  <link rel="manifest" href="../assets/site.webmanifest">
+
+  <!-- 🟥 Theme Colors -->
+  <meta name="theme-color" content="#0044cc">
+  <meta name="background-color" content="#ffffff">
 
   <!-- Theme + fragments -->
   <link rel="stylesheet" href="../css/navbar.css" />
@@ -196,22 +209,74 @@
       <h2 class="section-title center">Upcoming Events</h2>
       <p class="muted tiny center">Check out what’s coming up soon.</p>
 
-      <div class="upcoming-grid" style="grid-template-columns: repeat(auto-fit,minmax(280px,1fr));">
+      <div class="upcoming-grid">
 
-        <!-- 2nd General Body Meeting – Family Feud Flyer -->
+        <!-- Frames of Resistance -->
         <article class="event-card">
-          <img src="../assets/events/2nd-gbm-flyer.png" alt="General Body Meeting – Family Feud Flyer"
-            class="event-flyer" />
-          <h3 class="event-title">General Body Meeting – Family Feud</h3>
+          <img src="../assets/events/tabling.PNG" alt="Frames of Resistance Flyer" class="event-flyer" />
+          <h3 class="event-title">Frames of Resistance & Resistance Café Bake Sale</h3>
           <p class="event-date">
-            Wednesday, October 1 • 12–1 PM • SEIR 298
+            Wednesday, October 8 • 11:00 AM – 2:00 PM • Library Mall
           </p>
-          <!-- RSVP removed
-        <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-        <div class="rsvp-form hidden">
-          <div data-customgform="YOUR_FORM_ID_HERE"></div>
-        </div>
-        -->
+          <p class="muted tiny">Selling Matcha & Kunafa • A gallery showcasing the heroes behind the camera</p>
+
+          <!-- RSVP (commented out)
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <div data-customgform="frames-of-resistance"></div>
+          </div>
+          -->
+        </article>
+
+        <!-- Hands of Heritage -->
+        <article class="event-card">
+          <img src="../assets/events/co-ed (2).PNG" alt="Hands of Heritage – Sisterhood Tatreez Night Flyer"
+            class="event-flyer" />
+          <h3 class="event-title">Hands of Heritage – Sisterhood Tatreez Night</h3>
+          <p class="event-date">
+            Thursday, October 9 • 6:00 PM • SEIR 294
+          </p>
+          <p class="muted tiny">$10 fee • Open to all (family + friends) • Refreshments included</p>
+
+          <!-- RSVP -->
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <div data-customgform="cmgegi09p00swwnkxr4va2hrh"></div>
+          </div>
+        </article>
+
+        <!-- Hoops for Palestine -->
+        <article class="event-card">
+          <img src="../assets/events/co-ed.PNG" alt="Hoops for Palestine – Brothers 4v4 Tournament Flyer"
+            class="event-flyer" />
+          <h3 class="event-title">Hoops for Palestine – Brothers 4v4 Tournament</h3>
+          <p class="event-date">
+            Thursday, October 9 • 6:30 PM • Dar El Salam
+          </p>
+          <p class="muted tiny">Team fee: $40 ($10/person) • Refreshments included</p>
+
+          <!-- RSVP -->
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <div data-customgform="cmgeg9rl800q8wnknmegyva3z"></div>
+          </div>
+        </article>
+
+        <!-- A Night of Sumud -->
+        <article class="event-card">
+          <img src="../assets/events/finale.PNG" alt="A Night of Sumud – Watermelon Week Finale Flyer"
+            class="event-flyer" />
+          <h3 class="event-title">A Night of Sumud – Watermelon Week Finale</h3>
+          <p class="event-date">
+            Friday, October 10 • 5:30 PM • CAPPA Courtyard
+          </p>
+          <p class="muted tiny">$10 entry fee • Dinner provided</p>
+
+          <!-- RSVP -->
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <div data-customgform="cmgegfyj400qawnknswoc3k4j"></div>
+          </div>
         </article>
 
         <!-- Blueprint Flyer -->
@@ -221,12 +286,13 @@
           <p class="event-date">
             Tuesdays • 5:30 PM – Location: SEIR 294
           </p>
-          <!-- RSVP removed
-        <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-        <div class="rsvp-form hidden">
-          <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
-        </div>
-        -->
+
+          <!-- RSVP (commented out)
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+           <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
+          </div>
+            -->
         </article>
 
         <!-- Listeners Corner Flyer -->
@@ -236,15 +302,17 @@
           <p class="event-date">
             Wednesdays • Starting Sept. 24 • 11:30 AM • In front of the UC
           </p>
-          <!-- RSVP removed
-        <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-        <div class="rsvp-form hidden">
-          <div data-customgform="YOUR_FORM_ID_HERE"></div>
-        </div>
-        -->
+
+          <!-- RSVP (commented out)
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+         <div data-customgform="listeners-corner"></div>
+          </div>
+           -->
         </article>
 
       </div>
+
     </div>
   </section>
 
@@ -428,13 +496,24 @@
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const grid = document.querySelector(".upcoming-grid");
-    if (grid && grid.children.length >= 4) {
-      grid.classList.add("four-items");
-    }
-  });
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.querySelector(".upcoming-grid");
+      if (grid) {
+        const eventCards = grid.querySelectorAll(".event-card");
+        const cardCount = eventCards.length;
+        
+        // Remove any existing classes
+        grid.classList.remove("four-items", "more-items");
+        
+        // Apply appropriate class based on event count
+        if (cardCount <= 4) {
+          grid.classList.add("four-items");
+        } else {
+          grid.classList.add("more-items");
+        }
+      }
+    });
+  </script>
 
 </body>
 
