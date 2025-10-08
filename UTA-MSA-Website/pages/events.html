@@ -178,6 +178,24 @@
     .hidden {
       display: none;
     }
+
+    /* Mobile RSVP button improvements */
+    @media (max-width: 640px) {
+      .rsvp-btn {
+        min-height: 44px; /* iOS touch target minimum */
+        min-width: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .rsvp-form {
+        margin-top: 16px;
+        padding: 16px;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid rgba(18, 60, 102, 0.1);
+      }
+    }
   </style>
 </head>
 
@@ -464,11 +482,36 @@
 
 
   <script>
-    document.querySelectorAll(".rsvp-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const form = btn.parentElement.querySelector(".rsvp-form");
-        form.classList.toggle("hidden");
-        btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
+    // Wait for DOM to be fully loaded before attaching RSVP button listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      const rsvpButtons = document.querySelectorAll(".rsvp-btn");
+      console.log("Found RSVP buttons:", rsvpButtons.length);
+      
+      rsvpButtons.forEach((btn, index) => {
+        console.log(`Setting up RSVP button ${index + 1}`);
+        
+        // Handle both click and touch events for better mobile support
+        const handleToggle = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const form = btn.parentElement.querySelector(".rsvp-form");
+          if (form) {
+            form.classList.toggle("hidden");
+            btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
+            console.log("Toggled form visibility");
+          } else {
+            console.error("Could not find RSVP form for button");
+          }
+        };
+        
+        // Add both click and touchstart events
+        btn.addEventListener("click", handleToggle);
+        btn.addEventListener("touchstart", handleToggle, { passive: false });
+        
+        // Ensure button is properly styled for touch
+        btn.style.cursor = "pointer";
+        btn.style.touchAction = "manipulation";
       });
     });
   </script>
