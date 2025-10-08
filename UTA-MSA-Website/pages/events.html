@@ -194,6 +194,32 @@
         background: #f8fafc;
         border-radius: 12px;
         border: 1px solid rgba(18, 60, 102, 0.1);
+        width: 100%;
+        overflow-x: auto; /* Allow horizontal scroll if form is too wide */
+      }
+      
+      /* Ensure CustomGForm elements are mobile-friendly */
+      .rsvp-form [data-customgform] {
+        width: 100%;
+        min-width: 280px; /* Minimum width for form elements */
+      }
+      
+      /* Mobile form input styling */
+      .rsvp-form input,
+      .rsvp-form textarea,
+      .rsvp-form select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .rsvp-form button {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 12px 24px;
       }
     }
   </style>
@@ -242,7 +268,11 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgegfyj400qawnknswoc3k4j"></div>
+            <div data-customgform="cmgim4ur100u7wnkx1ldfhvf4"></div>
+            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
+              If the form doesn't appear, please contact us directly at 
+              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
+            </p>
           </div>
         </article>
 
@@ -259,7 +289,11 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgegi09p00swwnkxr4va2hrh"></div>
+            <div data-customgform="cmgim7xrp00ubwnkxoqc4nwho"></div>
+            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
+              If the form doesn't appear, please contact us directly at 
+              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
+            </p>
           </div>
         </article>
 
@@ -276,7 +310,11 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgeg9rl800q8wnknmegyva3z"></div>
+            <div data-customgform="cmgim6ent00u9wnkx2wmdzq54"></div>
+            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
+              If the form doesn't appear, please contact us directly at 
+              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
+            </p>
           </div>
         </article>
 
@@ -517,6 +555,29 @@
   </script>
 
   <script async src="https://cdn.customgform.com/cgf.js"></script>
+  
+  <!-- Debug CustomGForm loading -->
+  <script>
+    window.addEventListener('load', () => {
+      console.log('CustomGForm script loaded:', typeof window.customgform !== 'undefined');
+      console.log('User agent:', navigator.userAgent);
+      console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+      
+      // Check if forms are being processed
+      setTimeout(() => {
+        const forms = document.querySelectorAll('[data-customgform]');
+        console.log('Found CustomGForm elements:', forms.length);
+        forms.forEach((form, index) => {
+          console.log(`Form ${index + 1}:`, form.getAttribute('data-customgform'));
+          console.log(`Form ${index + 1} has content:`, form.innerHTML.length > 0);
+        });
+        
+        // Check for any CustomGForm iframes that might have loaded
+        const iframes = document.querySelectorAll('iframe[src*="customgform"]');
+        console.log('CustomGForm iframes found:', iframes.length);
+      }, 3000);
+    });
+  </script>
 
 
   <!-- Navbar JS after fragments -->
