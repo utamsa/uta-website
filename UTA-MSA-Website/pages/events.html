@@ -269,10 +269,6 @@
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
             <div data-customgform="cmgim4ur100u7wnkx1ldfhvf4"></div>
-            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
-              If the form doesn't appear, please contact us directly at 
-              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
-            </p>
           </div>
         </article>
 
@@ -290,10 +286,6 @@
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
             <div data-customgform="cmgim7xrp00ubwnkxoqc4nwho"></div>
-            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
-              If the form doesn't appear, please contact us directly at 
-              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
-            </p>
           </div>
         </article>
 
@@ -311,10 +303,6 @@
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
             <div data-customgform="cmgim6ent00u9wnkx2wmdzq54"></div>
-            <p class="muted tiny" style="margin-top: 12px; text-align: center;">
-              If the form doesn't appear, please contact us directly at 
-              <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>
-            </p>
           </div>
         </article>
 
@@ -522,24 +510,31 @@
   <script>
     // Wait for DOM to be fully loaded before attaching RSVP button listeners
     document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM loaded, setting up RSVP buttons...");
       const rsvpButtons = document.querySelectorAll(".rsvp-btn");
       console.log("Found RSVP buttons:", rsvpButtons.length);
       
+      if (rsvpButtons.length === 0) {
+        console.error("NO RSVP BUTTONS FOUND! Check HTML structure.");
+        return;
+      }
+      
       rsvpButtons.forEach((btn, index) => {
-        console.log(`Setting up RSVP button ${index + 1}`);
+        console.log(`Setting up RSVP button ${index + 1}:`, btn.textContent);
         
         // Handle both click and touch events for better mobile support
         const handleToggle = (e) => {
           e.preventDefault();
           e.stopPropagation();
+          console.log(`RSVP button ${index + 1} clicked!`);
           
           const form = btn.parentElement.querySelector(".rsvp-form");
           if (form) {
             form.classList.toggle("hidden");
             btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
-            console.log("Toggled form visibility");
+            console.log(`Toggled form visibility for button ${index + 1}. Form hidden:`, form.classList.contains("hidden"));
           } else {
-            console.error("Could not find RSVP form for button");
+            console.error(`Could not find RSVP form for button ${index + 1}`);
           }
         };
         
@@ -550,7 +545,11 @@
         // Ensure button is properly styled for touch
         btn.style.cursor = "pointer";
         btn.style.touchAction = "manipulation";
+        
+        console.log(`RSVP button ${index + 1} setup complete`);
       });
+      
+      console.log("All RSVP buttons setup complete!");
     });
   </script>
 
