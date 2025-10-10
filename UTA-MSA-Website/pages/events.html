@@ -553,10 +553,15 @@
         
         // Handle both click and touch events for better mobile support
         const handleToggle = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
+          // Only prevent default on mobile to avoid desktop conflicts
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          if (isMobile) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          
           console.log(`RSVP button ${index + 1} clicked!`);
-          console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+          console.log('Is mobile:', isMobile);
           
           const form = btn.parentElement.querySelector(".rsvp-form");
           if (form) {
@@ -568,7 +573,6 @@
             console.log(`Form ${index + 1} computed style:`, window.getComputedStyle(form).display);
             
             // Mobile-specific fix: Force CustomGForm reload if no content
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             if (isMobile && !isNowHidden) {
               const customFormDiv = form.querySelector('[data-customgform]');
               if (customFormDiv && customFormDiv.innerHTML.trim() === '') {
@@ -592,9 +596,17 @@
           }
         };
         
-        // Add both click and touchstart events
-        btn.addEventListener("click", handleToggle);
-        btn.addEventListener("touchstart", handleToggle, { passive: false });
+        // Add event listeners based on device type
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          // Mobile: use both click and touchstart
+          btn.addEventListener("click", handleToggle);
+          btn.addEventListener("touchstart", handleToggle, { passive: false });
+        } else {
+          // Desktop: use only click to avoid conflicts
+          btn.addEventListener("click", handleToggle);
+        }
         
         // Ensure button is properly styled for touch
         btn.style.cursor = "pointer";
