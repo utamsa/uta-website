@@ -147,6 +147,17 @@
       gap: 24px;
       grid-template-columns: 1fr;
       margin-top: 20px;
+      justify-content: center;
+      align-items: start;
+    }
+    
+    /* 3 items: 3 columns on desktop, 1 column on mobile */
+    @media (min-width: 768px) {
+      .upcoming-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin-inline: auto;
+      }
     }
 
     .event-card {
@@ -297,7 +308,14 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgim4ur100u7wnkx1ldfhvf4"></div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeA3pm6UH-SfifGN4mSdHZFXKJKrEjYxgqSu905dmCEpKD9_g/viewform?embedded=true" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    style="border: none; border-radius: 12px;"
+                    loading="lazy">
+              Loading…
+            </iframe>
           </div>
         </article>
 
@@ -503,149 +521,23 @@
 
 
   <script>
-    // Wait for DOM to be fully loaded before attaching RSVP button listeners
-    document.addEventListener("DOMContentLoaded", () => {
-      console.log("DOM loaded, setting up RSVP buttons...");
-      const rsvpButtons = document.querySelectorAll(".rsvp-btn");
-      console.log("Found RSVP buttons:", rsvpButtons.length);
-      
-      if (rsvpButtons.length === 0) {
-        console.error("NO RSVP BUTTONS FOUND! Check HTML structure.");
-        return;
-      }
-      
-      rsvpButtons.forEach((btn, index) => {
-        console.log(`Setting up RSVP button ${index + 1}:`, btn.textContent);
-        
-        // Handle both click and touch events for better mobile support
-        const handleToggle = (e) => {
-          // Only prevent default on mobile to avoid desktop conflicts
-          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-          if (isMobile) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-          
-          console.log(`RSVP button ${index + 1} clicked!`);
-          console.log('Is mobile:', isMobile);
-          
-          const form = btn.parentElement.querySelector(".rsvp-form");
-          if (form) {
-            const wasHidden = form.classList.contains("hidden");
-            form.classList.toggle("hidden");
-            const isNowHidden = form.classList.contains("hidden");
-            
-            console.log(`Form ${index + 1} was hidden: ${wasHidden}, now hidden: ${isNowHidden}`);
-            console.log(`Form ${index + 1} computed style:`, window.getComputedStyle(form).display);
-            
-            // Mobile-specific fix: Force CustomGForm reload if no content
-            if (isMobile && !isNowHidden) {
-              const customFormDiv = form.querySelector('[data-customgform]');
-              if (customFormDiv && customFormDiv.innerHTML.trim() === '') {
-                console.log(`Mobile: Form ${index + 1} has no content, forcing reload...`);
-                const formId = customFormDiv.getAttribute('data-customgform');
-                // Force reload by recreating the element
-                customFormDiv.innerHTML = '';
-                customFormDiv.setAttribute('data-customgform', formId);
-                
-                // Trigger CustomGForm to process this element
-                if (window.customgform) {
-                  window.customgform.init();
-                }
-              }
-            }
-            
-            btn.textContent = isNowHidden ? "RSVP Now" : "Hide Form";
-            console.log(`Toggled form visibility for button ${index + 1}. Form hidden:`, isNowHidden);
-          } else {
-            console.error(`Could not find RSVP form for button ${index + 1}`);
-          }
-        };
-        
-        // Add event listeners based on device type
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        if (isMobile) {
-          // Mobile: use both click and touchstart
-          btn.addEventListener("click", handleToggle);
-          btn.addEventListener("touchstart", handleToggle, { passive: false });
-        } else {
-          // Desktop: use only click to avoid conflicts
-          btn.addEventListener("click", handleToggle);
-        }
-        
-        // Ensure button is properly styled for touch
-        btn.style.cursor = "pointer";
-        btn.style.touchAction = "manipulation";
-        
-        console.log(`RSVP button ${index + 1} setup complete`);
+    document.querySelectorAll(".rsvp-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const form = btn.parentElement.querySelector(".rsvp-form");
+        form.classList.toggle("hidden");
+        btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
       });
-      
-      console.log("All RSVP buttons setup complete!");
     });
   </script>
 
-  <script async src="https://cdn.customgform.com/cgf.js"></script>
   
-  <!-- Debug CustomGForm loading -->
-  <script>
-    window.addEventListener('load', () => {
-      console.log('CustomGForm script loaded:', typeof window.customgform !== 'undefined');
-      console.log('User agent:', navigator.userAgent);
-      console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-      
-      // Check if forms are being processed
-      setTimeout(() => {
-        const forms = document.querySelectorAll('[data-customgform]');
-        console.log('Found CustomGForm elements:', forms.length);
-        forms.forEach((form, index) => {
-          console.log(`Form ${index + 1}:`, form.getAttribute('data-customgform'));
-          console.log(`Form ${index + 1} has content:`, form.innerHTML.length > 0);
-          console.log(`Form ${index + 1} innerHTML:`, form.innerHTML);
-        });
-        
-        // Check for any CustomGForm iframes that might have loaded
-        const iframes = document.querySelectorAll('iframe[src*="customgform"]');
-        console.log('CustomGForm iframes found:', iframes.length);
-        
-        // Force reload CustomGForm on mobile if no content
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        if (isMobile && forms.length > 0) {
-          const hasContent = Array.from(forms).some(form => form.innerHTML.length > 0);
-          if (!hasContent) {
-            console.log('Mobile detected with no form content, attempting to reload CustomGForm...');
-            // Try to reload the CustomGForm script
-            const script = document.createElement('script');
-            script.src = 'https://cdn.customgform.com/cgf.js';
-            script.async = true;
-            document.head.appendChild(script);
-          }
-        }
-      }, 3000);
-    });
-  </script>
 
 
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const grid = document.querySelector(".upcoming-grid");
-      if (grid) {
-        const eventCards = grid.querySelectorAll(".event-card");
-        const cardCount = eventCards.length;
-        
-        // Remove any existing classes
-        grid.classList.remove("four-items", "more-items");
-        
-        // Apply appropriate class based on event count
-        if (cardCount <= 4) {
-          grid.classList.add("four-items");
-        } else {
-          grid.classList.add("more-items");
-        }
-      }
-    });
+    // Grid layout is now handled by CSS media queries
+    // No JavaScript needed for 3-event layout
   </script>
 
 </body>
