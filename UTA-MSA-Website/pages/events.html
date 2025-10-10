@@ -190,6 +190,31 @@
       display: none;
     }
 
+    /* Prevent horizontal scrolling in RSVP forms */
+    .rsvp-form {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      position: relative;
+    }
+
+    .rsvp-form iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      /* Force the iframe to fit the container */
+      transform: scale(1) !important;
+      transform-origin: 0 0 !important;
+    }
+
+    /* Mobile-specific iframe handling */
+    @media (max-width: 640px) {
+      .rsvp-form iframe {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: -16px; /* Compensate for container padding */
+        margin-right: -16px;
+      }
+    }
+
     /* Mobile RSVP button improvements */
     @media (max-width: 640px) {
       .rsvp-btn {
@@ -308,11 +333,11 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeA3pm6UH-SfifGN4mSdHZFXKJKrEjYxgqSu905dmCEpKD9_g/viewform?embedded=true" 
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeA3pm6UH-SfifGN4mSdHZFXKJKrEjYxgqSu905dmCEpKD9_g/viewform?embedded=true&usp=sf_link" 
                     width="100%" 
                     height="600" 
                     frameborder="0" 
-                    style="border: none; border-radius: 12px;"
+                    style="border: none; border-radius: 12px; width: 100%; max-width: 100%; transform: scale(1); transform-origin: 0 0;"
                     loading="lazy">
               Loading…
             </iframe>
