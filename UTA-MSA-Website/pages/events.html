@@ -16,7 +16,7 @@
   <link rel="manifest" href="../assets/site.webmanifest">
 
   <!-- 🟥 Theme Colors -->
-  <meta name="theme-color" content="#0044cc">
+  <meta name="theme-color" content="#ffffff">
   <meta name="background-color" content="#ffffff">
 
   <!-- Theme + fragments -->
@@ -178,6 +178,79 @@
     .hidden {
       display: none;
     }
+
+    /* Mobile RSVP button improvements */
+    @media (max-width: 640px) {
+      .rsvp-btn {
+        min-height: 44px; /* iOS touch target minimum */
+        min-width: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .rsvp-form {
+        margin-top: 16px;
+        padding: 16px;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid rgba(18, 60, 102, 0.1);
+        width: 100%;
+        overflow-x: auto; /* Allow horizontal scroll if form is too wide */
+        display: block !important; /* Force display when not hidden */
+      }
+      
+      .rsvp-form.hidden {
+        display: none !important; /* Force hide when hidden */
+      }
+      
+      /* Ensure CustomGForm elements are mobile-friendly */
+      .rsvp-form [data-customgform] {
+        width: 100%;
+        min-width: 280px; /* Minimum width for form elements */
+        display: block !important;
+        min-height: 200px; /* Ensure minimum height */
+      }
+      
+      /* CustomGForm iframe mobile fixes */
+      .rsvp-form iframe {
+        width: 100% !important;
+        min-height: 200px !important;
+        border: none !important;
+        display: block !important;
+      }
+      
+      /* CustomGForm form mobile fixes */
+      .rsvp-form form {
+        width: 100% !important;
+        display: block !important;
+      }
+      
+      /* CustomGForm input containers */
+      .rsvp-form .form-group,
+      .rsvp-form .field {
+        width: 100% !important;
+        margin-bottom: 16px !important;
+        display: block !important;
+      }
+      
+      /* Mobile form input styling */
+      .rsvp-form input,
+      .rsvp-form textarea,
+      .rsvp-form select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .rsvp-form button {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
   </style>
 </head>
 
@@ -211,21 +284,21 @@
 
       <div class="upcoming-grid">
 
-        <!-- Frames of Resistance -->
+        <!-- A Night of Sumud -->
         <article class="event-card">
-          <img src="../assets/events/tabling.PNG" alt="Frames of Resistance Flyer" class="event-flyer" />
-          <h3 class="event-title">Frames of Resistance & Resistance Café Bake Sale</h3>
+          <img src="../assets/events/finale.PNG" alt="A Night of Sumud – Watermelon Week Finale Flyer"
+            class="event-flyer" />
+          <h3 class="event-title">A Night of Sumud – Watermelon Week Finale</h3>
           <p class="event-date">
-            Wednesday, October 8 • 11:00 AM – 2:00 PM • Library Mall
+            Friday, October 10 • 5:30 PM • CAPPA Courtyard
           </p>
-          <p class="muted tiny">Selling Matcha & Kunafa • A gallery showcasing the heroes behind the camera</p>
+          <p class="muted tiny">$10 entry fee • Dinner provided</p>
 
-          <!-- RSVP (commented out)
+          <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="frames-of-resistance"></div>
+            <div data-customgform="cmgim4ur100u7wnkx1ldfhvf4"></div>
           </div>
-          -->
         </article>
 
         <!-- Hands of Heritage -->
@@ -241,7 +314,7 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgegi09p00swwnkxr4va2hrh"></div>
+            <div data-customgform="cmgim7xrp00ubwnkxoqc4nwho"></div>
           </div>
         </article>
 
@@ -258,24 +331,7 @@
           <!-- RSVP -->
           <button class="btn btn-primary rsvp-btn">RSVP Now</button>
           <div class="rsvp-form hidden">
-            <div data-customgform="cmgeg9rl800q8wnknmegyva3z"></div>
-          </div>
-        </article>
-
-        <!-- A Night of Sumud -->
-        <article class="event-card">
-          <img src="../assets/events/finale.PNG" alt="A Night of Sumud – Watermelon Week Finale Flyer"
-            class="event-flyer" />
-          <h3 class="event-title">A Night of Sumud – Watermelon Week Finale</h3>
-          <p class="event-date">
-            Friday, October 10 • 5:30 PM • CAPPA Courtyard
-          </p>
-          <p class="muted tiny">$10 entry fee • Dinner provided</p>
-
-          <!-- RSVP -->
-          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-          <div class="rsvp-form hidden">
-            <div data-customgform="cmgegfyj400qawnknswoc3k4j"></div>
+            <div data-customgform="cmgim6ent00u9wnkx2wmdzq54"></div>
           </div>
         </article>
 
@@ -481,16 +537,115 @@
 
 
   <script>
-    document.querySelectorAll(".rsvp-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const form = btn.parentElement.querySelector(".rsvp-form");
-        form.classList.toggle("hidden");
-        btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
+    // Wait for DOM to be fully loaded before attaching RSVP button listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM loaded, setting up RSVP buttons...");
+      const rsvpButtons = document.querySelectorAll(".rsvp-btn");
+      console.log("Found RSVP buttons:", rsvpButtons.length);
+      
+      if (rsvpButtons.length === 0) {
+        console.error("NO RSVP BUTTONS FOUND! Check HTML structure.");
+        return;
+      }
+      
+      rsvpButtons.forEach((btn, index) => {
+        console.log(`Setting up RSVP button ${index + 1}:`, btn.textContent);
+        
+        // Handle both click and touch events for better mobile support
+        const handleToggle = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log(`RSVP button ${index + 1} clicked!`);
+          console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+          
+          const form = btn.parentElement.querySelector(".rsvp-form");
+          if (form) {
+            const wasHidden = form.classList.contains("hidden");
+            form.classList.toggle("hidden");
+            const isNowHidden = form.classList.contains("hidden");
+            
+            console.log(`Form ${index + 1} was hidden: ${wasHidden}, now hidden: ${isNowHidden}`);
+            console.log(`Form ${index + 1} computed style:`, window.getComputedStyle(form).display);
+            
+            // Mobile-specific fix: Force CustomGForm reload if no content
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile && !isNowHidden) {
+              const customFormDiv = form.querySelector('[data-customgform]');
+              if (customFormDiv && customFormDiv.innerHTML.trim() === '') {
+                console.log(`Mobile: Form ${index + 1} has no content, forcing reload...`);
+                const formId = customFormDiv.getAttribute('data-customgform');
+                // Force reload by recreating the element
+                customFormDiv.innerHTML = '';
+                customFormDiv.setAttribute('data-customgform', formId);
+                
+                // Trigger CustomGForm to process this element
+                if (window.customgform) {
+                  window.customgform.init();
+                }
+              }
+            }
+            
+            btn.textContent = isNowHidden ? "RSVP Now" : "Hide Form";
+            console.log(`Toggled form visibility for button ${index + 1}. Form hidden:`, isNowHidden);
+          } else {
+            console.error(`Could not find RSVP form for button ${index + 1}`);
+          }
+        };
+        
+        // Add both click and touchstart events
+        btn.addEventListener("click", handleToggle);
+        btn.addEventListener("touchstart", handleToggle, { passive: false });
+        
+        // Ensure button is properly styled for touch
+        btn.style.cursor = "pointer";
+        btn.style.touchAction = "manipulation";
+        
+        console.log(`RSVP button ${index + 1} setup complete`);
       });
+      
+      console.log("All RSVP buttons setup complete!");
     });
   </script>
 
   <script async src="https://cdn.customgform.com/cgf.js"></script>
+  
+  <!-- Debug CustomGForm loading -->
+  <script>
+    window.addEventListener('load', () => {
+      console.log('CustomGForm script loaded:', typeof window.customgform !== 'undefined');
+      console.log('User agent:', navigator.userAgent);
+      console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+      
+      // Check if forms are being processed
+      setTimeout(() => {
+        const forms = document.querySelectorAll('[data-customgform]');
+        console.log('Found CustomGForm elements:', forms.length);
+        forms.forEach((form, index) => {
+          console.log(`Form ${index + 1}:`, form.getAttribute('data-customgform'));
+          console.log(`Form ${index + 1} has content:`, form.innerHTML.length > 0);
+          console.log(`Form ${index + 1} innerHTML:`, form.innerHTML);
+        });
+        
+        // Check for any CustomGForm iframes that might have loaded
+        const iframes = document.querySelectorAll('iframe[src*="customgform"]');
+        console.log('CustomGForm iframes found:', iframes.length);
+        
+        // Force reload CustomGForm on mobile if no content
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile && forms.length > 0) {
+          const hasContent = Array.from(forms).some(form => form.innerHTML.length > 0);
+          if (!hasContent) {
+            console.log('Mobile detected with no form content, attempting to reload CustomGForm...');
+            // Try to reload the CustomGForm script
+            const script = document.createElement('script');
+            script.src = 'https://cdn.customgform.com/cgf.js';
+            script.async = true;
+            document.head.appendChild(script);
+          }
+        }
+      }, 3000);
+    });
+  </script>
 
 
   <!-- Navbar JS after fragments -->
