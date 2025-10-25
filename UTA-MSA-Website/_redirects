@@ -11,6 +11,7 @@
 /prayer     /pages/prayer.html       200
 /join       /pages/join.html         200
 /home       /pages/home.html         200
+/qurannight /pages/qurannight.html  200
 
 # Catch-all for any other pages
 /*          /pages/:splat.html       200
