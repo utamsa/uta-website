@@ -24,6 +24,42 @@
   <link rel="stylesheet" href="../css/footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   
+  <style>
+    html { scroll-behavior: smooth; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      border-color: var(--orange);
+    }
+    .btn-primary:hover {
+      background: #d66a0a;
+      border-color: #d66a0a;
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .btn-ghost:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+  </style>
+  
   <!-- Page-specific styles -->
   <style>
     :root{
