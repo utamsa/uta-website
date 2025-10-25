@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MSA UT Arlington — Quran Night</title>
+  
+  <!-- 🟦 Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <!-- 🟨 Web App Manifest -->
+  <link rel="manifest" href="../assets/site.webmanifest">
+
+  <!-- 🟥 Theme Colors -->
+  <meta name="theme-color" content="#ffffff">
+  <meta name="background-color" content="#ffffff">
+
+  <!-- Theme + fragments -->
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Page-specific styles -->
+  <style>
+    :root{
+      --blue:#123c66;
+      --orange:#ef7d1a;
+      --ink:#0c1016;
+      --bg:#ffffff;
+      --bg-alt:#f7f9fc;
+      --white:#fff;
+      --header-h:72px;
+    }
+
+    @media (max-width:640px){ :root{ --header-h:64px; } }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      padding-top:var(--header-h);
+      font-family:system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+
+    .section{ padding:40px 20px; }
+    .section.alt{ background:var(--bg-alt); }
+    .container{ width:min(1200px, 92vw); margin-inline:auto; }
+    .center{ text-align:center; }
+    .muted{ color:#334155; }
+    .tiny{ font-size:.92rem; }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; justify-content:center;
+      padding:12px 18px; border-radius:16px; text-decoration:none; font-weight:700;
+      border:2px solid transparent; transition:transform .12s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform:translateY(-1px); }
+    .btn:active{ transform:translateY(0); }
+    .btn-primary{
+      background:linear-gradient(90deg, var(--blue), var(--orange));
+      color:#fff; box-shadow:0 10px 24px rgba(18,60,102,.18);
+      border-color:#fff;
+      border-width:3px;
+      background-clip:padding-box;
+      -webkit-background-clip:padding-box;
+    }
+    .btn-primary:hover{ border-color:#fff; }
+    .btn-ghost{
+      background:rgba(255,255,255,.7);
+      color:var(--blue); border-color:rgba(18,60,102,.2);
+      backdrop-filter:saturate(1.1) blur(4px);
+    }
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; padding:0;
+      min-height:calc(60vh - 0px); display:grid; place-items:center;
+      background:
+        radial-gradient(1200px 600px at -10% 10%, rgba(239,125,26,.10), transparent 60%),
+        radial-gradient(1000px 520px at 110% -10%, rgba(18,60,102,.10), transparent 55%),
+        #fff;
+    }
+    .hero-wrap{ width:min(1200px, 92vw); padding:46px 16px; text-align:center; }
+    .eyebrow{ text-transform:uppercase; letter-spacing:.04em; font-weight:800; color:var(--orange); font-size:.9rem; }
+    .title{ margin:.1rem 0 .4rem; font-weight:900; line-height:1.08; font-size:clamp(2rem, 4vw, 3rem); color:var(--ink); }
+    .title span{ color:var(--blue); }
+    .subhead{ margin:0 auto 1.1rem; color:#334155; max-width:70ch; }
+    .hero-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+    /* Event flyer */
+    .event-flyer{
+      width:100%; max-width:1050px; border-radius:16px; margin:0 auto 30px; display:block;
+      box-shadow:0 16px 40px rgba(0,0,0,.15);
+    }
+
+    /* Cards */
+    .card{
+      background:#fff; border:1px solid rgba(12,16,22,.08); border-radius:16px;
+      padding:18px; box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+    .section-title{ margin:0 0 .5rem; color:var(--blue); font-size:clamp(1.35rem, 2.2vw, 1.7rem); }
+
+    /* Event details */
+    .event-details{
+      width:min(900px, 92vw); margin:0 auto; text-align:left;
+    }
+    .detail-item{
+      display:flex; align-items:center; margin-bottom:16px; padding:12px 0;
+      border-bottom:1px solid rgba(18,60,102,.1);
+    }
+    .detail-item:last-child{ border-bottom:none; margin-bottom:0; }
+    .detail-icon{
+      width:40px; height:40px; background:linear-gradient(90deg, var(--blue), var(--orange));
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      margin-right:16px; color:white; font-size:1.1rem;
+    }
+    .detail-content h3{ margin:0 0 4px; color:var(--blue); font-size:1.1rem; }
+    .detail-content p{ margin:0; color:#334155; font-size:.95rem; }
+
+    /* Contact */
+    .contact-links{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+    
+    /* RSVP Form */
+    .hidden{ display:none; }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{ min-height:calc(56vh - 0px); }
+    }
+    @media (max-width:640px){
+      .detail-item{ flex-direction:column; text-align:center; }
+      .detail-icon{ margin-right:0; margin-bottom:12px; }
+      .flyers-container{ 
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important; 
+        display: block !important;
+      }
+      .flyer-left, .flyer-right{ 
+        width: 100% !important; 
+        margin-bottom: 20px !important;
+      }
+      .event-details-cards{ 
+        grid-template-columns: 1fr !important; 
+        gap: 16px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div data-include="./fragments/navBar.html"></div>
+
+  <main role="main">
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="hero-wrap">
+        <p class="eyebrow">Quran Night</p>
+        <h1 class="title">The <span>Serenity</span> of Remembrance</h1>
+        <p class="subhead">
+          Join us for a beautiful evening of Quran recitation and reflection. 
+          Experience the peace and tranquility of remembrance in a welcoming environment.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#details"><i class="fa-solid fa-calendar"></i> Event Details</a>
+          <a class="btn btn-ghost" href="#rsvp"><i class="fa-solid fa-user-plus"></i> RSVP</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS -->
+    <section id="details" class="section alt">
+      <div class="container">
+        <h2 class="section-title center">Event Details</h2>
+        
+        <!-- Flyers Side by Side -->
+        <div class="flyers-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin-bottom: 40px;">
+          <div class="flyer-left">
+            <img src="../assets/events/quran-night.JPG" alt="Quran Night Flyer" class="event-flyer" style="max-width: 100%;" />
+          </div>
+          <div class="flyer-right">
+            <img src="../assets/events/quran-night-parking.png" alt="Quran Night Parking Map" class="event-flyer" style="max-width: 100%; margin-bottom: 16px;" />
+            
+            <!-- Parking Legend -->
+            <div class="parking-legend" style="text-align: center; margin-bottom: 16px;">
+              <p style="color: #123c66; font-weight: 600; margin: 0;">
+                <span style="color: #123c66;">Blue:</span> General Parking &nbsp;&nbsp; 
+                <span style="color: #ef7d1a;">Orange:</span> ADA Accessible
+              </p>
+            </div>
+            
+            <!-- Parking Registration Instructions -->
+            <div class="parking-info" style="background: #f8fafc; border-radius: 16px; padding: 24px;">
+              <h3 style="color: #123c66; margin: 0 0 16px; text-align: center;">Parking Registration Instructions</h3>
+              <ol style="color: #334155; line-height: 1.6; margin: 0; padding-left: 20px;">
+                <li>Scan the QR code above</li>
+                <li>Select "Student Organization Event"</li>
+                <li>Select "Quran Night 2025"</li>
+                <li>Enter voucher code: <strong>(will be adding soon)</strong></li>
+                <li>Select permit type "(EVT-COMP) Fac/Staff Surface Lots (After5PM)"</li>
+                <li>Select the active date</li>
+                <li>Add vehicle info and confirm</li>
+              </ol>
+              <div style="text-align: center; margin-top: 16px;">
+                <p style="color: #334155; margin: 0; font-weight: 600;">
+                  <strong>312 UTA BLVD, ARLINGTON TX 76010</strong><br>
+                  (LOT F11, 12, 38, AND 39)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Details Cards -->
+        <div class="event-details-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+          <div class="card detail-card" style="text-align: center; padding: 24px;">
+            <div class="detail-icon" style="margin: 0 auto 16px;">
+              <i class="fa-solid fa-calendar"></i>
+            </div>
+            <h3 style="color: #123c66; margin: 0 0 8px; font-size: 1.1rem;">Date & Time</h3>
+            <p style="color: #334155; margin: 0; font-size: 0.95rem;">Friday, November 7th at 5:00 PM</p>
+          </div>
+          
+          <div class="card detail-card" style="text-align: center; padding: 24px;">
+            <div class="detail-icon" style="margin: 0 auto 16px;">
+              <i class="fa-solid fa-map-marker-alt"></i>
+            </div>
+            <h3 style="color: #123c66; margin: 0 0 8px; font-size: 1.1rem;">Location</h3>
+            <p style="color: #334155; margin: 0; font-size: 0.95rem;">Rosebud Theater<br>300 W 1st St, Arlington, TX</p>
+          </div>
+          
+          <div class="card detail-card" style="text-align: center; padding: 24px;">
+            <div class="detail-icon" style="margin: 0 auto 16px;">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h3 style="color: #123c66; margin: 0 0 8px; font-size: 1.1rem;">Audience</h3>
+            <p style="color: #334155; margin: 0; font-size: 0.95rem;">Open to all students, families, and friends</p>
+          </div>
+          
+          <div class="card detail-card" style="text-align: center; padding: 24px;">
+            <div class="detail-icon" style="margin: 0 auto 16px;">
+              <i class="fa-solid fa-book-quran"></i>
+            </div>
+            <h3 style="color: #123c66; margin: 0 0 8px; font-size: 1.1rem;">What to Expect</h3>
+            <p style="color: #334155; margin: 0; font-size: 0.95rem;">Beautiful Quran recitation, peaceful reflection, and spiritual connection in a welcoming community environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP SECTION -->
+    <section id="rsvp" class="section">
+      <div class="container center">
+        <h2 class="section-title">RSVP</h2>
+        <p class="muted">Save your seat for this year's Quran Night!</p>
+        
+        <button class="btn btn-primary rsvp-btn" style="margin: 20px 0;">
+          <i class="fa-solid fa-user-plus"></i> RSVP Now
+        </button>
+        
+        <div class="rsvp-form hidden" style="max-width: 800px; margin: 0 auto;">
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <iframe 
+              src="https://www.jotform.com/form/252925752523056" 
+              width="100%" 
+              height="1200" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              style="border: none; border-radius: 16px; width: 100%; max-width: 100%;"
+              loading="lazy"
+              title="Quran Night RSVP Form">
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt">
+      <div class="container center">
+        <h2 class="section-title">Questions?</h2>
+        <p class="muted">We're here to help—reach out anytime.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:utarlington.msa@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Email Us
+          </a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.instagram.com/msaatuta/">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://linktr.ee/utamsa">
+            <i class="fa-solid fa-link"></i> Linktree
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div data-include="fragments/footer.html"></div>
+
+  </main>
+
+  <!-- Fragment loader -->
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
+        const file = el.getAttribute('data-include');
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event('fragments:ready'));
+    })();
+  </script>
+
+  <script src="../script/navBar.js"></script>
+
+  <!-- RSVP Logic -->
+  <script>
+    document.querySelectorAll(".rsvp-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const form = btn.parentElement.querySelector(".rsvp-form");
+        form.classList.toggle("hidden");
+        btn.textContent = form.classList.contains("hidden") ? "RSVP Now" : "Hide Form";
+      });
+    });
+  </script>
+</body>
+
+</html>
