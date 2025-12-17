@@ -95,3 +95,250 @@ summary{ cursor:pointer; font-weight:700; color:var(--blue); }
   -webkit-background-clip:padding-box; /* Safari */
 }
 .btn-primary:hover{ border-color:#fff; } /* keep on hover */
+
+/* Spring 2026 Applications Section */
+.applications-section {
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+}
+
+.application-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(18, 60, 102, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.application-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+
+.application-header {
+  margin-bottom: 28px;
+}
+
+.application-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(18, 60, 102, 0.08), rgba(239, 125, 26, 0.08));
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.application-badge i {
+  color: var(--orange);
+}
+
+.application-subhead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.application-flyer-container {
+  margin: 28px 0;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(239, 125, 26, 0.03), rgba(18, 60, 102, 0.03));
+  border-radius: 16px;
+  border: 1px solid rgba(18, 60, 102, 0.06);
+}
+
+.application-flyer {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.application-flyer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.application-info-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 60, 102, 0.08);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-item i {
+  color: var(--orange);
+  font-size: 1.25rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.info-item strong {
+  display: block;
+  color: var(--blue);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.application-actions {
+  margin: 32px 0 24px;
+  text-align: center;
+}
+
+.application-btn {
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 14px 28px;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(18, 60, 102, 0.25);
+  transition: all 0.3s ease;
+}
+
+.application-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(18, 60, 102, 0.35);
+}
+
+.hidden {
+  display: none;
+}
+
+.application-form {
+  margin-top: 32px;
+  padding: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid rgba(18, 60, 102, 0.1);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.form-header {
+  padding: 24px 24px 16px;
+  background: linear-gradient(135deg, rgba(18, 60, 102, 0.03), rgba(239, 125, 26, 0.03));
+  border-bottom: 1px solid rgba(18, 60, 102, 0.08);
+}
+
+.form-header h3 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 1.3rem;
+}
+
+.form-header p {
+  margin: 0;
+}
+
+.application-form iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  display: block !important;
+  min-height: 1400px;
+}
+
+.application-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 3px solid var(--orange);
+}
+
+.application-note i {
+  color: var(--orange);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.application-note p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.application-note a {
+  color: var(--blue);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.application-note a:hover {
+  color: var(--orange);
+}
+
+/* Mobile-specific application form handling */
+@media (max-width: 640px) {
+  .application-info-box {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .application-flyer-container {
+    padding: 12px;
+    margin: 20px 0;
+  }
+
+  .application-flyer {
+    max-width: 100%;
+  }
+
+  .application-form {
+    margin-top: 24px;
+    border-radius: 12px;
+  }
+
+  .form-header {
+    padding: 20px 16px 12px;
+  }
+
+  .form-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .application-form iframe {
+    min-height: 1200px;
+  }
+
+  .application-note {
+    padding: 14px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .application-note i {
+    align-self: flex-start;
+  }
+}

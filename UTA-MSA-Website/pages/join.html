@@ -44,6 +44,76 @@
       </div>
     </section>
 
+    <!-- SPRING 2026 OPEN POSITIONS -->
+    <section id="applications" class="section applications-section">
+      <div class="container grid-single">
+        <div class="card embed-card application-card">
+          <div class="application-header">
+            <span class="application-badge">
+              <i class="fa-solid fa-briefcase"></i> Leadership Opportunities
+            </span>
+            <h2 class="section-title center">Spring 2026 Open Positions</h2>
+            <p class="muted center application-subhead">
+              Interested in serving on the MSA team? Apply for an officer or committee position and help shape our community.
+            </p>
+          </div>
+          
+          <div class="application-flyer-container">
+            <img src="../assets/events/spring-2026-applications.png" alt="Spring 2026 Open Positions Application Flyer" class="application-flyer" />
+          </div>
+
+          <div class="application-info-box">
+            <div class="info-item">
+              <i class="fa-solid fa-calendar-days"></i>
+              <div>
+                <strong>Application Deadline</strong>
+                <p>December 31st, 11:59 PM</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-users"></i>
+              <div>
+                <strong>Available Positions</strong>
+                <p>Education Chair, Showdown Coordinators, Sisterhood Committee</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="application-actions">
+            <button class="btn btn-primary application-btn" id="application-btn">
+              <i class="fa-solid fa-file-pen"></i> Apply Now
+            </button>
+          </div>
+
+          <div class="application-form hidden" id="application-form">
+            <div class="form-header">
+              <h3>MSA at UTA Spring 2026 Application</h3>
+              <p class="muted tiny">Complete the form below to apply for an officer or committee position.</p>
+            </div>
+            <iframe 
+              src="https://forms.gle/FnYdLxhBqy4NvphAA?embedded=true" 
+              width="100%" 
+              height="1400" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              loading="lazy"
+              title="MSA at UTA Spring 2026 Open Positions Application">
+              Loading…
+            </iframe>
+          </div>
+
+          <div class="application-note">
+            <i class="fa-solid fa-info-circle"></i>
+            <p>
+              <strong>Note:</strong> This application is for officer/committee positions. Looking to become a member? 
+              <a href="#form">Scroll down to the membership form</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- MEMBERSHIP FORM (CustomGForm embed) -->
     <section id="form" class="section alt">
       <div class="container grid-single">
@@ -135,5 +205,28 @@
   </script>
 
   <script src="../script/navBar.js"></script>
+
+  <!-- Application Form Toggle Logic -->
+  <script>
+    const applicationBtn = document.getElementById('application-btn');
+    const applicationForm = document.getElementById('application-form');
+
+    if (applicationBtn && applicationForm) {
+      applicationBtn.addEventListener('click', () => {
+        applicationForm.classList.toggle('hidden');
+        const isHidden = applicationForm.classList.contains('hidden');
+        applicationBtn.innerHTML = isHidden 
+          ? '<i class="fa-solid fa-file-pen"></i> Apply Now'
+          : '<i class="fa-solid fa-times"></i> Hide Form';
+        
+        // Scroll to form if opening
+        if (!isHidden) {
+          setTimeout(() => {
+            applicationForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      });
+    }
+  </script>
 </body>
 </html>

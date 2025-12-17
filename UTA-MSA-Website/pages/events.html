@@ -149,14 +149,13 @@
       margin-top: 20px;
       justify-content: center;
       align-items: start;
-      justify-items: center;
     }
     
-    /* Center single upcoming card on desktop as well */
+    /* 3 items: 3 columns on desktop, 1 column on mobile */
     @media (min-width: 768px) {
       .upcoming-grid {
-        grid-template-columns: 1fr;
-        max-width: 600px;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
         margin-inline: auto;
       }
     }
@@ -165,11 +164,9 @@
       background: #fff;
       border: 1px solid rgba(12, 16, 22, .08);
       border-radius: 16px;
-      padding: 22px;
+      padding: 18px;
       box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
       text-align: center;
-      max-width: 460px;
-      width: 100%;
     }
 
     .event-flyer {
@@ -322,15 +319,115 @@
       <p class="muted tiny center">Check out what's coming up soon.</p>
 
       <div class="upcoming-grid">
+
+        <!-- Around the Ummah Potluck Event -->
         <article class="event-card">
-          <h3 class="event-title">More events coming soon</h3>
+          <img src="../assets/events/Around-the-ummah.jpeg" alt="Around the Ummah Potluck Flyer" class="event-flyer" />
+          <h3 class="event-title">Around the Ummah Potluck</h3>
           <p class="event-date">
-            Spring 2026 programming is in the works.
+            Monday, November 17th • 5:30 PM • Dar El Quran Banquet Hall
           </p>
-          <p class="muted tiny">
-            Check back here or follow us on Instagram <strong>@msaatuta</strong> for the latest event announcements.
+
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdPefjOFt1KZgnz1doZ6Aug2oiAK5Vz5dWtCLS3mw5fj6_ekw/viewform" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border: none; border-radius: 12px; width: 100%; max-width: 100%; transform: scale(1); transform-origin: 0 0;"
+                    loading="lazy"
+                    title="Around the Ummah Potluck RSVP Form">
+              Loading…
+            </iframe>
+          </div>
+        </article>
+
+        <!-- The Fall Classic Sports Night Event -->
+        <article class="event-card">
+          <img src="../assets/events/fall-classic-flyer.PNG" alt="The Fall Classic Sports Night Flyer" class="event-flyer" />
+          <h3 class="event-title">The Fall Classic</h3>
+          <p class="event-date">
+            Friday, November 21st • 4:00 PM • MAC Outdoor Courts
           </p>
         </article>
+
+        <!-- Quran Night Event -->
+        <!--
+        <article class="event-card">
+          <img src="../assets/events/quran-night.JPG" alt="Quran Night Flyer" class="event-flyer" />
+          <h3 class="event-title">Quran Night</h3>
+          <p class="event-date">
+            Friday, November 7 • 5:00 PM • Rosebud Theater
+          </p>
+          <p class="muted tiny">Join us for a beautiful evening of Quran recitation and reflection • Open to everyone</p>
+
+          <a href="/qurannight" class="btn btn-primary" style="display: inline-block; margin-top: 8px;">
+            <i class="fa-solid fa-book-open"></i> Read More
+          </a>
+        </article>
+        -->
+
+        <!-- Hike for Humanity Event (Postponed) -->
+        <!--
+        <article class="event-card">
+          <img src="../assets/events/hikeforhumanity-postponed.jpg" alt="Hike for Humanity Postponed Flyer" class="event-flyer" />
+          <h3 class="event-title">Hike for Humanity</h3>
+          <p class="event-date">
+            POSTPONED • TBD
+          </p>
+          <p class="muted tiny">$10 per person • Breakfast provided • Bring your family and friends!</p>
+
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+            <iframe src="https://forms.gle/WJDRrNgVhr4955mh9" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border: none; border-radius: 12px; width: 100%; max-width: 100%; transform: scale(1); transform-origin: 0 0;"
+                    loading="lazy"
+                    title="Hike for Humanity RSVP Form">
+              Loading…
+            </iframe>
+          </div>
+        </article>
+        -->
+
+        <!-- Listeners Corner Flyer -->
+        <article class="event-card">
+          <img src="../assets/events/listeners-corner-flyer.png" alt="Listeners Corner Flyer" class="event-flyer" />
+          <h3 class="event-title">Listeners Corner</h3>
+          <p class="event-date">
+            Wednesdays • Starting Sept. 24 • 11:30 AM • In front of the UC
+          </p>
+
+          <!-- RSVP (commented out)
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+         <div data-customgform="listeners-corner"></div>
+          </div>
+           -->
+        </article>
+
+        <!-- Blueprint Flyer -->
+        <article class="event-card">
+          <img src="../assets/events/Blueprint.png" alt="The Blueprint Flyer" class="event-flyer" />
+          <h3 class="event-title">The Blueprint</h3>
+          <p class="event-date">
+            Tuesdays • 5:30 PM – Location: SEIR 294
+          </p>
+
+          <!-- RSVP (commented out)
+          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
+          <div class="rsvp-form hidden">
+           <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
+          </div>
+            -->
+        </article>
+
       </div>
 
     </div>
@@ -500,7 +597,7 @@
   </script>
 
 
-  <!-- RSVP Logic (commented out for now, keep for future use)
+  <!-- RSVP Logic -->
   <script>
     document.querySelectorAll(".rsvp-btn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -510,17 +607,16 @@
       });
     });
   </script>
-  -->
+
+  
 
 
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
-  <!--
   <script>
     // Grid layout is now handled by CSS media queries
     // No JavaScript needed for 3-event layout
   </script>
-  -->
 
 </body>
 
