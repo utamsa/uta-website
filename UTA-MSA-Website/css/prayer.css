@@ -177,3 +177,83 @@ html {
   -webkit-background-clip:padding-box; /* Safari */
 }
 .btn-primary:hover{ border-color:#fff; } /* keep on hover */
+
+/* ===== Musallah update modal & notice ===== */
+.hero-update-chip{
+  margin-top:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.8);
+  border:1px solid rgba(18,60,102,.16);
+  color:#123c66;
+  font-size:.9rem;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+.hero-update-chip i{
+  color:#ef7d1a;
+}
+.hero-update-chip span{
+  font-weight:600;
+}
+
+.musallah-modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  z-index:60;
+}
+.musallah-modal-backdrop.is-open{
+  display:flex;
+}
+.musallah-modal{
+  max-width:540px;
+  width:100%;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 22px 60px rgba(15,23,42,.45);
+  padding:22px 22px 20px;
+}
+.musallah-modal h2{
+  margin-top:0;
+  margin-bottom:.4rem;
+}
+.musallah-modal p{
+  margin:.35rem 0;
+  color:#334155;
+}
+.musallah-modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:16px;
+  flex-wrap:wrap;
+}
+.musallah-modal-close{
+  border:none;
+  background:transparent;
+  color:#64748b;
+  font-weight:600;
+  cursor:pointer;
+  padding:8px 10px;
+}
+.musallah-update-section{
+  background:#fff7ed;
+  border-radius:16px;
+  padding:18px 18px 16px;
+  border:1px solid rgba(234,88,12,.25);
+}
+.musallah-update-section h2{
+  color:#c2410c;
+}
+.musallah-update-section p{
+  margin:.45rem 0;
+  color:#374151;
+}

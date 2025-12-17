@@ -36,6 +36,12 @@
           Open for the 5 daily prayers, Jumu’ah (1:30 PM), study circles, and community lectures.
         </p>
 
+        <!-- Important update chip -->
+        <button type="button" class="hero-update-chip" id="musallah-notice-trigger">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Important update about this prayer space</span>
+        </button>
+
         <!-- NEW: location + times buttons in the hero -->
         <div class="actions hero-actions">
           <a class="btn btn-primary"
@@ -44,6 +50,24 @@
             Open in Maps
           </a>
           <a class="btn btn-ghost" href="#times">See Prayer Times</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Musallah Update Section (full statement) -->
+    <section id="musallah-update" class="section alt">
+      <div class="container">
+        <div class="musallah-update-section">
+          <p class="muted tiny" style="text-transform:uppercase; letter-spacing:.08em; margin:0 0 .4rem;">For Immediate Release • December 12, 2025</p>
+          <h2>Important Update Regarding the Campus Prayer Space</h2>
+          <p>Assalamu Alaykum Dear MSA at UTA family,</p>
+          <p>For the past two years, CAPPA South B has been more than just a campus building. It has been our home, a sanctuary for our daily prayers, Jumu’ah, weekly halaqahs, and a place where our community has grown and thrived. We thank Allah (SWT) for the immense blessings we have experienced in this space and for the unity He has placed in our hearts.</p>
+          <p>Recently, we learned that the University plans to demolish CAPPA South B as part of a larger construction project, with demolition scheduled over winter break. This means our community will no longer have access to the building when we return for the spring semester.</p>
+          <p>After speaking with the Intercultural Student Engagement Center (ISEC), the department that oversees the Musallah space, we were informed that they were not aware of the demolition plans until we raised our concerns. We are grateful for their transparency and for their immediate commitment to supporting our community during this transition.</p>
+          <p>While this news is difficult, we want to assure you that we are actively advocating for our community’s needs. Together with ISEC, we are working to secure a temporary prayer space for daily use and Jumu’ah, as well as a long-term, permanent home that can serve the growing needs of Muslim students at UTA.</p>
+          <p>Change can be unsettling, but our strength has never come from a building. It comes from the dedication, unity, and resilience of our community. Allah is the Best of Planners, and we trust that with patience and perseverance, something better awaits us, inshaAllah.</p>
+          <p>We kindly ask for your du’as and your patience as we navigate this situation. We will continue to keep you informed and will share updates as soon as new prayer locations are confirmed.</p>
+          <p>Jazakum Allahu Khairan,<br />Your MSA at UTA Executive Board</p>
         </div>
       </div>
     </section>
@@ -145,6 +169,61 @@
       await Promise.all(tasks);
       document.dispatchEvent(new Event('fragments:ready'));
     })();
+  </script>
+
+  <!-- Musallah notice modal -->
+  <div class="musallah-modal-backdrop" id="musallah-modal" aria-hidden="true">
+    <div class="musallah-modal" role="dialog" aria-modal="true" aria-labelledby="musallah-modal-title">
+      <h2 id="musallah-modal-title">Important Update: UTA Musallah (CAPPA South B)</h2>
+      <p>CAPPA South B, which has served as our campus Musallah and community space, is scheduled to be demolished as part of a University construction project during winter break.</p>
+      <p>MSA at UTA is working closely with ISEC and University administration to secure both a temporary prayer space and a long-term permanent home for our community.</p>
+      <p>We ask for your du’as and patience as we navigate this transition, and we will continue to share updates as new locations are confirmed.</p>
+      <div class="musallah-modal-actions">
+        <button type="button" class="musallah-modal-close" id="musallah-modal-close">Close</button>
+        <a href="#musallah-update" class="btn btn-primary" id="musallah-modal-readmore">Read full statement</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple modal toggle logic for Musallah update
+    const noticeTrigger = document.getElementById('musallah-notice-trigger');
+    const musallahModal = document.getElementById('musallah-modal');
+    const musallahClose = document.getElementById('musallah-modal-close');
+    const musallahReadMore = document.getElementById('musallah-modal-readmore');
+
+    function openMusallahModal() {
+      if (!musallahModal) return;
+      musallahModal.classList.add('is-open');
+      musallahModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMusallahModal() {
+      if (!musallahModal) return;
+      musallahModal.classList.remove('is-open');
+      musallahModal.setAttribute('aria-hidden', 'true');
+    }
+
+    noticeTrigger?.addEventListener('click', openMusallahModal);
+    musallahClose?.addEventListener('click', closeMusallahModal);
+    musallahReadMore?.addEventListener('click', () => {
+      // Let the anchor navigate to the section, but also close the modal
+      closeMusallahModal();
+    });
+    musallahModal?.addEventListener('click', (e) => {
+      if (e.target === musallahModal) {
+        closeMusallahModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMusallahModal();
+      }
+    });
+
+    // Open the notice automatically when the prayer page loads
+    openMusallahModal();
   </script>
 
   <script src="../script/navBar.js"></script>
