@@ -318,9 +318,19 @@
       <h2 class="section-title center">Upcoming Events</h2>
       <p class="muted tiny center">Check out what's coming up soon.</p>
 
-      <div class="upcoming-grid">
+      <div class="upcoming-grid" style="display: flex; justify-content: center; align-items: center; min-height: 300px;">
+
+        <!-- Coming Soon Message -->
+        <article class="event-card" style="text-align: center; max-width: 550px; padding: 40px 32px;">
+          <i class="fa-solid fa-calendar-plus" style="font-size: 3.5rem; color: var(--orange); margin-bottom: 20px; display: block;"></i>
+          <h3 class="event-title" style="font-size: 1.5rem; margin-bottom: 16px;">Events Will Be Posted Soon</h3>
+          <p class="muted" style="margin-top: 12px; font-size: 1.05rem; line-height: 1.6;">
+            More information to come. Stay tuned by following us on Instagram <strong>@msaatuta</strong> for the latest updates.
+          </p>
+        </article>
 
         <!-- Around the Ummah Potluck Event -->
+        <!--
         <article class="event-card">
           <img src="../assets/events/Around-the-ummah.jpeg" alt="Around the Ummah Potluck Flyer" class="event-flyer" />
           <h3 class="event-title">Around the Ummah Potluck</h3>
@@ -343,8 +353,10 @@
             </iframe>
           </div>
         </article>
+        -->
 
         <!-- The Fall Classic Sports Night Event -->
+        <!--
         <article class="event-card">
           <img src="../assets/events/fall-classic-flyer.PNG" alt="The Fall Classic Sports Night Flyer" class="event-flyer" />
           <h3 class="event-title">The Fall Classic</h3>
@@ -352,6 +364,7 @@
             Friday, November 21st • 4:00 PM • MAC Outdoor Courts
           </p>
         </article>
+        -->
 
         <!-- Quran Night Event -->
         <!--
@@ -397,36 +410,26 @@
         -->
 
         <!-- Listeners Corner Flyer -->
+        <!--
         <article class="event-card">
           <img src="../assets/events/listeners-corner-flyer.png" alt="Listeners Corner Flyer" class="event-flyer" />
           <h3 class="event-title">Listeners Corner</h3>
           <p class="event-date">
             Wednesdays • Starting Sept. 24 • 11:30 AM • In front of the UC
           </p>
-
-          <!-- RSVP (commented out)
-          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-          <div class="rsvp-form hidden">
-         <div data-customgform="listeners-corner"></div>
-          </div>
-           -->
         </article>
+        -->
 
         <!-- Blueprint Flyer -->
+        <!--
         <article class="event-card">
           <img src="../assets/events/Blueprint.png" alt="The Blueprint Flyer" class="event-flyer" />
           <h3 class="event-title">The Blueprint</h3>
           <p class="event-date">
             Tuesdays • 5:30 PM – Location: SEIR 294
           </p>
-
-          <!-- RSVP (commented out)
-          <button class="btn btn-primary rsvp-btn">RSVP Now</button>
-          <div class="rsvp-form hidden">
-           <div data-customgform="cmf61ic8j00auwnknpxyquaxs"></div>
-          </div>
-            -->
         </article>
+        -->
 
       </div>
 
@@ -597,7 +600,8 @@
   </script>
 
 
-  <!-- RSVP Logic -->
+  <!-- RSVP Logic (commented out - no active RSVP buttons) -->
+  <!--
   <script>
     document.querySelectorAll(".rsvp-btn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -607,16 +611,21 @@
       });
     });
   </script>
+  -->
 
   
 
 
   <!-- Navbar JS after fragments -->
   <script src="../script/navBar.js"></script>
+  
+  <!-- Grid layout script (not needed currently) -->
+  <!--
   <script>
     // Grid layout is now handled by CSS media queries
     // No JavaScript needed for 3-event layout
   </script>
+  -->
 
 </body>
 
