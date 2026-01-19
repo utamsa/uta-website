@@ -32,6 +32,11 @@
     <meta name="twitter:description" content="The largest annual Muslim Student Association competition in the Southwest region. Join us March 27-29, 2026 at The University of Texas at Arlington.">
     <meta name="twitter:image" content="https://msaatuta.org/assets/MSA-Website-card.png">
     
+    <!-- 📱 SMS / iMessage Preview -->
+    <meta itemprop="name" content="Showdown 2026 - MSA at UTA">
+    <meta itemprop="description" content="The largest annual Muslim Student Association competition in the Southwest region. Join us March 27-29, 2026 at The University of Texas at Arlington.">
+    <meta itemprop="image" content="https://msaatuta.org/assets/MSA-Website-card.png">
+    
     <link rel="stylesheet" href="../css/showdown.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/footer.css" />
@@ -290,6 +295,33 @@
     </script>
 
     <script src="../script/navBar.js"></script>
+
+    <!-- Crewneck Banner & Button Visibility Script -->
+    <script>
+        // Force crewneck banner and button to be visible
+        document.addEventListener('DOMContentLoaded', () => {
+            const crewneckBanner = document.querySelector('.crewneck-banner');
+            if (crewneckBanner) {
+                crewneckBanner.style.display = 'flex';
+                crewneckBanner.style.visibility = 'visible';
+                crewneckBanner.style.opacity = '1';
+                console.log('✅ Crewneck banner is visible');
+            } else {
+                console.warn('⚠️ Crewneck banner not found in DOM');
+            }
+            
+            // Force hero button to be visible
+            const heroActions = document.querySelector('.hero-actions');
+            if (heroActions) {
+                heroActions.style.display = 'flex';
+                heroActions.style.visibility = 'visible';
+                heroActions.style.opacity = '1';
+                console.log('✅ Hero actions button is visible');
+            } else {
+                console.warn('⚠️ Hero actions not found in DOM');
+            }
+        });
+    </script>
 
     <!-- Showdown Interest Form Toggle Logic -->
     <script>
