@@ -86,6 +86,62 @@ body {
   text-align: center;
 }
 
+/* Crewneck Banner Incentive */
+.crewneck-banner {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, var(--orange), #f59e42);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(239, 125, 26, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(239, 125, 26, 0.25);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(239, 125, 26, 0.4);
+  }
+}
+
+.crewneck-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.crewneck-content {
+  color: white;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.crewneck-content strong {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.crewneck-content .highlight {
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
 .hero-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 .hero-actions {
@@ -250,16 +306,47 @@ html {
   }
   
   .what-is-showdown {
-    padding: 20px 20px;
+    padding: 20px 16px;
     margin-bottom: 28px;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .what-is-title {
     font-size: 1.2rem;
+    word-wrap: break-word;
   }
   
   .what-is-description {
     font-size: 0.95rem;
+    word-wrap: break-word;
+    line-height: 1.6;
+  }
+  
+  .crewneck-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 24px;
+    width: calc(100% - 16px);
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .crewneck-content {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .crewneck-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
   
   .showdown-interest-form {
