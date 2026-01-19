@@ -60,8 +60,17 @@
                 This year's Showdown will be hosted right here at 
                 <strong>The University of Texas at Arlington</strong>, March 27th-29th, 2026.
             </p>
-            
-            <!-- What is Showdown -->
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#how-to-participate">
+                    <i class="fa-solid fa-arrow-right"></i> How to Participate
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS SHOWDOWN -->
+    <section class="section">
+        <div class="container">
             <div class="what-is-showdown">
                 <h3 class="what-is-title">What is Showdown?</h3>
                 <p class="what-is-description">
@@ -71,8 +80,12 @@
                     sisterhood, skill-building, and community—where faith meets friendly competition.
                 </p>
             </div>
-            
-            <!-- Early Registration Incentive -->
+        </div>
+    </section>
+
+    <!-- EARLY REGISTRATION INCENTIVE -->
+    <section class="section alt" style="padding: 40px 0;">
+        <div class="container">
             <div class="crewneck-banner">
                 <div class="crewneck-icon">
                     <i class="fa-solid fa-gift"></i>
@@ -80,12 +93,6 @@
                 <div class="crewneck-content">
                     <strong>Limited Time Offer:</strong> Register by January 23rd and get a <span class="highlight">FREE Showdown crewneck!</span>
                 </div>
-            </div>
-            
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="#how-to-participate">
-                    <i class="fa-solid fa-arrow-right"></i> How to Participate
-                </a>
             </div>
         </div>
     </section>
@@ -299,32 +306,6 @@
 
     <script src="../script/navBar.js"></script>
 
-    <!-- Crewneck Banner & Button Visibility Script -->
-    <script>
-        // Force crewneck banner and button to be visible
-        document.addEventListener('DOMContentLoaded', () => {
-            const crewneckBanner = document.querySelector('.crewneck-banner');
-            if (crewneckBanner) {
-                crewneckBanner.style.display = 'flex';
-                crewneckBanner.style.visibility = 'visible';
-                crewneckBanner.style.opacity = '1';
-                console.log('✅ Crewneck banner is visible');
-            } else {
-                console.warn('⚠️ Crewneck banner not found in DOM');
-            }
-            
-            // Force hero button to be visible
-            const heroActions = document.querySelector('.hero-actions');
-            if (heroActions) {
-                heroActions.style.display = 'flex';
-                heroActions.style.visibility = 'visible';
-                heroActions.style.opacity = '1';
-                console.log('✅ Hero actions button is visible');
-            } else {
-                console.warn('⚠️ Hero actions not found in DOM');
-            }
-        });
-    </script>
 
     <!-- Showdown Interest Form Toggle Logic -->
     <script>
