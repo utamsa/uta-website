@@ -152,6 +152,53 @@ html {
   font-size: 1.5rem;
 }
 
+/* Showdown Interest Form Styles */
+.hidden {
+  display: none;
+}
+
+.showdown-interest-form {
+  overflow-x: hidden;
+  width: 100%;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+  }
+}
+
+.showdown-interest-form iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  display: block !important;
+}
+
+.showdown-interest-btn {
+  transition: all 0.2s ease;
+}
+
+.showdown-interest-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Step cards responsive */
+.step-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
 /* Mobile hero adjustments */
 @media (max-width: 640px) {
   .hero-actions {
@@ -165,5 +212,34 @@ html {
   }
   .section-title {
     font-size: 2rem;
+  }
+  
+  .showdown-interest-form {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    padding: 16px;
+  }
+  
+  .showdown-interest-form iframe {
+    min-height: 1200px !important;
+  }
+  
+  .step-card {
+    padding: 24px 20px;
+  }
+  
+  .steps-container {
+    padding: 0 8px;
+  }
+  
+  .deadline-item {
+    flex-direction: column;
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+  
+  .coordinators-grid {
+    grid-template-columns: 1fr !important;
   }
 }
