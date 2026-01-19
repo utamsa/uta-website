@@ -58,6 +58,34 @@ body {
   font-size: 1.15rem;
   line-height: 1.6;
 }
+
+/* What is Showdown Section in Hero */
+.what-is-showdown {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(18, 60, 102, 0.04), rgba(239, 125, 26, 0.04));
+  border: 1px solid rgba(18, 60, 102, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.what-is-title {
+  color: var(--blue);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.what-is-description {
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+}
+
 .hero-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 .hero-actions {
@@ -158,8 +186,9 @@ html {
 }
 
 .showdown-interest-form {
-  overflow-x: hidden;
-  width: 100%;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative;
   animation: slideDown 0.3s ease-out;
 }
 
@@ -179,10 +208,16 @@ html {
   max-width: 100% !important;
   border: none !important;
   display: block !important;
+  transform: scale(1) !important;
+  transform-origin: 0 0 !important;
 }
 
 .showdown-interest-btn {
   transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .showdown-interest-btn:hover {
@@ -214,15 +249,37 @@ html {
     font-size: 2rem;
   }
   
+  .what-is-showdown {
+    padding: 20px 20px;
+    margin-bottom: 28px;
+  }
+  
+  .what-is-title {
+    font-size: 1.2rem;
+  }
+  
+  .what-is-description {
+    font-size: 0.95rem;
+  }
+  
   .showdown-interest-form {
     margin-left: -20px;
     margin-right: -20px;
     width: calc(100% + 40px);
     padding: 16px;
+    display: block !important;
+  }
+  
+  .showdown-interest-form.hidden {
+    display: none !important;
   }
   
   .showdown-interest-form iframe {
+    width: 100vw !important;
+    max-width: 100vw !important;
     min-height: 1200px !important;
+    margin-left: -16px;
+    margin-right: -16px;
   }
   
   .step-card {
