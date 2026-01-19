@@ -1,3 +1,4 @@
+/* Showdown Styles - Mobile Safari Fix v2.0 */
 :root {
   --blue: #123c66;
   --orange: #ef7d1a;
@@ -318,34 +319,40 @@ html {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile hero adjustments */
-@media (max-width: 640px) {
+/* Mobile hero adjustments - Updated for Safari iOS */
+@media only screen and (max-width: 768px) {
   .hero {
-    padding: 60px 0 60px 0;
-    min-height: 80vh;
+    padding: 60px 0 60px 0 !important;
+    min-height: 80vh !important;
+    min-height: 80dvh !important;
   }
   
   .hero-wrap {
-    padding: 70px 16px 30px 16px;
-    width: 100%;
+    padding: 70px 16px 30px 16px !important;
+    width: 100% !important;
   }
   
   .eyebrow {
-    font-size: 0.8rem;
-    margin-bottom: 16px;
-    display: block;
+    font-size: 0.8rem !important;
+    margin-bottom: 16px !important;
+    display: block !important;
+    visibility: visible !important;
   }
   
   .title {
-    font-size: 2.5rem;
-    margin: 0 0 24px;
-    line-height: 1.1;
+    font-size: 2.5rem !important;
+    margin: 0 0 24px !important;
+    line-height: 1.1 !important;
+    display: block !important;
+    visibility: visible !important;
   }
   
   .subhead {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0 auto 32px;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 32px !important;
+    display: block !important;
+    visibility: visible !important;
   }
   
   .hero-actions {
