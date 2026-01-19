@@ -1,4 +1,4 @@
-/* Showdown Styles - Mobile Safari Fix v2.0 */
+/* Showdown Styles - Mobile Safari Fix v3.1 - Cache Cleared 2026-01-19 */
 :root {
   --blue: #123c66;
   --orange: #ef7d1a;
@@ -11,8 +11,8 @@
 body {
   font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
-  padding-top: var(--header-h);
   color: var(--ink);
+  /* padding-top removed - handled by navbar.css */
 }
 
 /* Utilities */
