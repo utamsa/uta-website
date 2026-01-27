@@ -162,13 +162,20 @@
     /* Upcoming events */
     .upcoming-grid {
       display: grid;
-      gap: 24px;
+      gap: 28px;
       grid-template-columns: 1fr;
-      margin-top: 20px;
+      margin-top: 24px;
       justify-content: center;
       align-items: start;
+      place-items: center;
     }
-    
+
+    .upcoming-grid.one-item {
+      grid-template-columns: minmax(240px, 360px);
+      max-width: 420px;
+      margin-inline: auto;
+    }
+
     /* 3 items: 3 columns on desktop, 1 column on mobile */
     @media (min-width: 768px) {
       .upcoming-grid {
@@ -176,32 +183,40 @@
         max-width: 1200px;
         margin-inline: auto;
       }
+
+      .upcoming-grid.one-item {
+        grid-template-columns: minmax(260px, 380px);
+        max-width: 460px;
+      }
     }
 
     .event-card {
-      background: #fff;
-      border: 1px solid rgba(12, 16, 22, .08);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, .06);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 240, 0.98));
+      border: 1px solid rgba(18, 60, 102, 0.12);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 14px 28px rgba(18, 60, 102, 0.12);
       text-align: center;
+      max-width: 360px;
+      width: 100%;
     }
 
     .event-flyer {
       width: 100%;
       border-radius: 12px;
-      margin-bottom: 12px;
+      display: block;
+      margin-bottom: 10px;
     }
 
     .event-title {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       color: #123c66;
-      margin: 8px 0 4px;
+      margin: 6px 0 6px;
     }
 
     .event-date {
       color: #334155;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
     }
 
     .hidden {
@@ -336,15 +351,14 @@
       <h2 class="section-title center">Upcoming Events</h2>
       <p class="muted tiny center">Check out what's coming up soon.</p>
 
-      <div class="upcoming-grid" style="display: flex; justify-content: center; align-items: center; min-height: 300px;">
-
-        <!-- Coming Soon Message -->
-        <article class="event-card" style="text-align: center; max-width: 550px; padding: 40px 32px;">
-          <i class="fa-solid fa-calendar-plus" style="font-size: 3.5rem; color: var(--orange); margin-bottom: 20px; display: block;"></i>
-          <h3 class="event-title" style="font-size: 1.5rem; margin-bottom: 16px;">Events Will Be Posted Soon</h3>
-          <p class="muted" style="margin-top: 12px; font-size: 1.05rem; line-height: 1.6;">
-            More information to come. Stay tuned by following us on Instagram <strong>@msaatuta</strong> for the latest updates.
+      <div class="upcoming-grid one-item">
+        <article class="event-card">
+          <img src="../assets/events/first-gbm-2026.PNG" alt="First General Body Meeting Flyer" class="event-flyer" />
+          <h3 class="event-title">First General Body Meeting</h3>
+          <p class="event-date">
+            Monday, February 2nd • 12:00 PM – 1:00 PM • SEIR 194
           </p>
+          <p class="muted tiny">Upcoming events, Ramadan, Showdown, and merch • Free food provided</p>
         </article>
 
         <!-- Around the Ummah Potluck Event -->
