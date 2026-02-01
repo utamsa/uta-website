@@ -1,0 +1,55 @@
+/* Loader Overlay */
+#msa-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Match site theme */
+  z-index: 9999; /* Topmost layer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+#msa-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Logo Setup */
+.loader-logo {
+  width: 120px; /* Adjust size as needed */
+  height: auto;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: logoEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
+             logoBreathing 2s ease-in-out infinite 0.8s;
+}
+
+/* Entrance Animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Breathing/Pulse Animation */
+@keyframes logoBreathing {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.2));
+  }
+}
