@@ -176,11 +176,11 @@
       margin-inline: auto;
     }
 
-    /* 2 items: centered row on desktop, 1 column on mobile */
+    /* 3 items per row on desktop, 1 column on mobile */
     @media (min-width: 768px) {
       .upcoming-grid {
-        grid-template-columns: repeat(2, minmax(320px, 380px));
-        max-width: 860px;
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+        max-width: 1200px;
         margin-inline: auto;
       }
 
@@ -383,6 +383,15 @@
               Loading…
             </iframe>
           </div>
+        </article>
+
+        <article class="event-card">
+          <img src="../assets/events/world-hijab-flyer.png" alt="World Hijab Day Booth Flyer" class="event-flyer" />
+          <h3 class="event-title">World Hijab Day Booth</h3>
+          <p class="event-date">
+            Wednesday, February 4th • 11:00 AM – 2:00 PM • Outside of Central Library
+          </p>
+          <p class="muted tiny">Try on a hijab with Sisterhood</p>
         </article>
 
         <!-- Around the Ummah Potluck Event -->
