@@ -20,6 +20,17 @@
   pointer-events: none;
 }
 
+#msa-loader.page-transition {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+#msa-loader.page-transition.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Logo Setup */
 .loader-logo {
   width: 120px; /* Adjust size as needed */
@@ -28,6 +39,18 @@
   transform: scale(0.8);
   animation: logoEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
              logoBreathing 2s ease-in-out infinite 0.8s;
+}
+
+.loader-logo.loader-logo-fast {
+  width: 92px;
+  opacity: 1;
+  transform: scale(1);
+  animation: logoBreathing 1.2s ease-in-out infinite;
+}
+
+body.page-transitioning {
+  opacity: 0.92;
+  transition: opacity 0.18s ease;
 }
 
 /* Entrance Animation */
