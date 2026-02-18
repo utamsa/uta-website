@@ -1,67 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramadan - MSA at UTA</title>
-    
-    <!-- 🟦 Favicons -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ramadan - MSA at UTA</title>
 
-    <!-- 🟨 Web App Manifest -->
-    <link rel="manifest" href="../assets/site.webmanifest">
+  <!-- 🟦 Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 
-    <!-- 🟥 Theme Colors -->
-    <meta name="theme-color" content="#ffffff">
-    <meta name="background-color" content="#ffffff">
-    
-    <link rel="stylesheet" href="../css/ramadan.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
+  <!-- 🟨 Web App Manifest -->
+  <link rel="manifest" href="../assets/site.webmanifest">
 
-  <link rel="stylesheet" href="../css/loader.css">
+  <!-- 🟥 Theme Colors -->
+  <meta name="theme-color" content="#ffffff">
+  <meta name="background-color" content="#ffffff">
+
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/ramadan.css" />
+  <link rel="stylesheet" href="../css/loader.css" />
 </head>
 
 <body>
+  <div data-include="./fragments/navBar.html"></div>
 
-    <!-- Navbar fragment -->
-    <div data-include="fragments/navBar.html"></div>
-
-    <!-- Coming Soon Section -->
-    <section class="coming-soon-container">
-        <h1>Coming Soon</h1>
-        <p>More information regarding Ramadan'26 will come out Winter 2025</p>
-
+  <main role="main">
+    <section class="hero section">
+      <div class="container hero-wrap">
+        <p class="eyebrow">Ramadan 2026</p>
+        <h1 class="title">Ramadan Kareem <span>From MSA at UTA</span></h1>
+        <p class="subhead">
+          Stay updated with our iftars, qiyams, sanctuary nights, and special Ramadan community events.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#calendar"><i class="fa-regular fa-calendar"></i> View Calendar</a>
+          <a class="btn btn-ghost" href="/events#calendar-section"><i class="fa-solid fa-arrow-up-right-from-square"></i> Main Events Calendar</a>
+        </div>
+      </div>
     </section>
 
-         <!-- Footer fragment (add this) -->
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title center">Important Dates</h2>
+        <p class="muted center tiny">Complete list of planned Ramadan events from Wednesday, February 18 to Saturday, March 21.</p>
+        <div class="schedule-board">
+          <article class="card">
+            <p class="badge"><i class="fa-solid fa-calendar-week"></i> February</p>
+            <div class="date-list">
+              <div class="date-item"><p class="date-label">Feb 18</p><p class="date-text">First Day of Ramadan</p></div>
+              <div class="date-item"><p class="date-label">Feb 20</p><p class="date-text">MSA x Pillars Iftar &amp; Qiyam</p></div>
+              <div class="date-item"><p class="date-label">Feb 25</p><p class="date-text">Al-Rayyan Sanctuary</p></div>
+              <div class="date-item"><p class="date-label">Feb 26</p><p class="date-text">MSA Grand Iftar</p></div>
+            </div>
+          </article>
+          <article class="card">
+            <p class="badge"><i class="fa-solid fa-calendar-days"></i> March</p>
+            <div class="date-list">
+              <div class="date-item"><p class="date-label">Mar 1</p><p class="date-text">March begins (calendar continues from February)</p></div>
+              <div class="date-item"><p class="date-label">Mar 2</p><p class="date-text">Brothers Cultural Iftar Potluck</p></div>
+              <div class="date-item"><p class="date-label">Mar 4</p><p class="date-text">Al-Rayyan Sanctuary</p></div>
+              <div class="date-item"><p class="date-label">Mar 6</p><p class="date-text">SJP x MSA Iftar &amp; Qiyam</p></div>
+              <div class="date-item"><p class="date-label">Mar 7-15</p><p class="date-text">Spring Break</p></div>
+              <div class="date-item"><p class="date-label">Mar 9</p><p class="date-text">Sisterhood Taraweeh</p></div>
+              <div class="date-item"><p class="date-label">Mar 13</p><p class="date-text">Sisterhood All Nighter</p></div>
+              <div class="date-item"><p class="date-label">Mar 14</p><p class="date-text">Brotherhood All Nighter</p></div>
+              <div class="date-item"><p class="date-label">Mar 16</p><p class="date-text">Intercultural Potluck</p></div>
+              <div class="date-item"><p class="date-label">Mar 17</p><p class="date-text">Henna Booth</p></div>
+              <div class="date-item"><p class="date-label">Mar 18</p><p class="date-text">Al-Rayyan Sanctuary</p></div>
+              <div class="date-item"><p class="date-label">Mar 19</p><p class="date-text">Last Day of Ramadan</p></div>
+              <div class="date-item"><p class="date-label">Mar 20</p><p class="date-text">Eid Al-Fitr</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" class="section">
+      <div class="container">
+        <h2 class="section-title center">Ramadan Programming Calendar</h2>
+        <p class="muted center tiny">This calendar is split across two months: February 18-28, then March 1-21. All dates may shift with moon sighting announcements.</p>
+
+        <div class="calendar-shell">
+          <div class="calendar-grid" role="table" aria-label="Ramadan schedule by week">
+            <div class="dow" role="columnheader">Sun</div>
+            <div class="dow" role="columnheader">Mon</div>
+            <div class="dow" role="columnheader">Tue</div>
+            <div class="dow" role="columnheader">Wed</div>
+            <div class="dow" role="columnheader">Thu</div>
+            <div class="dow" role="columnheader">Fri</div>
+            <div class="dow" role="columnheader">Sat</div>
+
+            <article class="day muted-day"></article>
+            <article class="day muted-day"></article>
+            <article class="day muted-day"></article>
+            <article class="day"><p class="date">18</p><p class="event">First day of Ramadan</p></article>
+            <article class="day"><p class="date">19</p></article>
+            <article class="day"><p class="date">20</p><p class="event">MSA x Pillars Iftar &amp; Qiyam</p></article>
+            <article class="day"><p class="date">21</p></article>
+
+            <article class="day"><p class="date">22</p></article>
+            <article class="day"><p class="date">23</p></article>
+            <article class="day"><p class="date">24</p></article>
+            <article class="day"><p class="date">25</p><p class="event">Al-Rayyan Sanctuary</p></article>
+            <article class="day"><p class="date">26</p><p class="event">MSA Grand Iftar</p></article>
+            <article class="day"><p class="date">27</p></article>
+            <article class="day"><p class="date">28</p></article>
+
+            <article class="day"><p class="date">1</p><p class="event">March begins</p></article>
+            <article class="day"><p class="date">2</p><p class="event">Brothers Cultural Iftar Potluck</p></article>
+            <article class="day"><p class="date">3</p></article>
+            <article class="day"><p class="date">4</p><p class="event">Al-Rayyan Sanctuary</p></article>
+            <article class="day"><p class="date">5</p></article>
+            <article class="day"><p class="date">6</p><p class="event">SJP x MSA Iftar &amp; Qiyam</p></article>
+            <article class="day"><p class="date">7</p><p class="event">Spring Break starts</p></article>
+
+            <article class="day"><p class="date">8</p></article>
+            <article class="day"><p class="date">9</p><p class="event">Sisterhood Taraweeh</p></article>
+            <article class="day"><p class="date">10</p></article>
+            <article class="day"><p class="date">11</p></article>
+            <article class="day"><p class="date">12</p></article>
+            <article class="day"><p class="date">13</p><p class="event">Sisterhood All Nighter</p></article>
+            <article class="day"><p class="date">14</p><p class="event">Brotherhood All Nighter</p></article>
+
+            <article class="day"><p class="date">15</p><p class="event">Spring Break ends</p></article>
+            <article class="day"><p class="date">16</p><p class="event">Intercultural Potluck</p></article>
+            <article class="day"><p class="date">17</p><p class="event">Henna Booth</p></article>
+            <article class="day"><p class="date">18</p><p class="event">Al-Rayyan Sanctuary</p></article>
+            <article class="day"><p class="date">19</p><p class="event">Last Day of Ramadan</p></article>
+            <article class="day"><p class="date">20</p><p class="event">Eid Al-Fitr</p></article>
+            <article class="day"><p class="date">21</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title center">Program Focus</h2>
+        <div class="highlights">
+          <article class="card">
+            <p class="badge"><i class="fa-solid fa-utensils"></i> Community Iftars</p>
+            <h3>Shared Meals</h3>
+            <p>Campus-wide iftar nights that bring students together across organizations and class years.</p>
+          </article>
+          <article class="card">
+            <p class="badge"><i class="fa-solid fa-mosque"></i> Worship Nights</p>
+            <h3>Taraweeh &amp; Qiyam</h3>
+            <p>Dedicated evenings for prayer, remembrance, and reflection throughout the month.</p>
+          </article>
+          <article class="card">
+            <p class="badge"><i class="fa-solid fa-users"></i> Community Spaces</p>
+            <h3>Brotherhood &amp; Sisterhood</h3>
+            <p>Intentional spaces for spiritual growth, support, and stronger campus relationships.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title center">Stay Connected</h2>
+        <p class="muted center tiny">For updates to times and locations, follow MSA announcements and check the main events calendar.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/events#calendar-section"><i class="fa-regular fa-calendar"></i> Events Calendar</a>
+          <a class="btn btn-ghost" href="/join"><i class="fa-solid fa-user-plus"></i> Join MSA</a>
+          <a class="btn btn-ghost" href="/donation"><i class="fa-solid fa-hand-holding-heart"></i> Support Ramadan</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <div data-include="./fragments/footer.html"></div>
-  
-    <!-- Fragment Loader -->
-    <script>
-        (async () => {
-            const tasks = [...document.querySelectorAll('[data-include]')].map(async el => {
-                const file = el.getAttribute('data-include');
-                const url = new URL(file, window.location.href).href;
-                try {
-                    const res = await fetch(url, { cache: 'no-store' });
-                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-                    el.outerHTML = await res.text();
-                } catch (e) {
-                    el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
-                }
-            });
-            await Promise.all(tasks);
-            document.dispatchEvent(new Event('fragments:ready'));
-        })();
-    </script>
 
-    <script src="../script/navBar.js"></script>
+  <script>
+    (async () => {
+      const tasks = [...document.querySelectorAll("[data-include]")].map(async el => {
+        const file = el.getAttribute("data-include");
+        const url = new URL(file, window.location.href).href;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error(res.status + " " + res.statusText);
+          el.outerHTML = await res.text();
+        } catch (e) {
+          el.outerHTML = `<!-- include failed: ${file} (${e}) -->`;
+        }
+      });
+      await Promise.all(tasks);
+      document.dispatchEvent(new Event("fragments:ready"));
+    })();
+  </script>
 
+  <script src="../script/navBar.js"></script>
   <script src="../script/loader.js"></script>
 </body>
+
 </html>
