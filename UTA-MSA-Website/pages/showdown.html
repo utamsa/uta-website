@@ -24,7 +24,7 @@
     
     <!-- 🟩 Open Graph / Social Media Cards -->
     <meta property="og:title" content="Showdown 2026 - MSA at UTA">
-    <meta property="og:description" content="The largest annual Muslim Student Association competition in the Southwest region. Join us March 27-29, 2026 at The University of Texas at Arlington.">
+    <meta property="og:description" content="Showdown 2026 was hosted at The University of Texas at Arlington, where MSA at UTA placed 3rd overall.">
     <meta property="og:image" content="https://msaatuta.org/assets/MSA-Website-card.png">
     <meta property="og:url" content="https://msaatuta.org/showdown">
     <meta property="og:type" content="website">
@@ -32,12 +32,12 @@
     <!-- 🟦 Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Showdown 2026 - MSA at UTA">
-    <meta name="twitter:description" content="The largest annual Muslim Student Association competition in the Southwest region. Join us March 27-29, 2026 at The University of Texas at Arlington.">
+    <meta name="twitter:description" content="Showdown 2026 was hosted at The University of Texas at Arlington, where MSA at UTA placed 3rd overall.">
     <meta name="twitter:image" content="https://msaatuta.org/assets/MSA-Website-card.png">
     
     <!-- 📱 SMS / iMessage Preview -->
     <meta itemprop="name" content="Showdown 2026 - MSA at UTA">
-    <meta itemprop="description" content="The largest annual Muslim Student Association competition in the Southwest region. Join us March 27-29, 2026 at The University of Texas at Arlington.">
+    <meta itemprop="description" content="Showdown 2026 was hosted at The University of Texas at Arlington, where MSA at UTA placed 3rd overall.">
     <meta itemprop="image" content="https://msaatuta.org/assets/MSA-Website-card.png">
     
     <link rel="stylesheet" href="../css/showdown.css?v=3.1&ts=20260119" />
@@ -53,17 +53,20 @@
     <div data-include="fragments/navBar.html"></div>
 
     <!-- HERO -->
-    <section class="section hero">
+    <section id="hero" class="section hero">
         <div class="hero-wrap">
             <p class="eyebrow">19th Annual</p>
             <h1 class="title">SHOWDOWN <span>2026</span></h1>
             <p class="subhead">
-                This year's Showdown will be hosted right here at 
-                <strong>The University of Texas at Arlington</strong>, March 27th-29th, 2026.
+                Showdown 2026 was hosted at <strong>The University of Texas at Arlington</strong>,
+                and MSA at UTA finished <strong>3rd place overall</strong>.
             </p>
             <div class="hero-actions">
-                <a class="btn btn-primary" href="#how-to-participate">
-                    <i class="fa-solid fa-arrow-right"></i> How to Participate
+                <a class="btn btn-primary" href="#recap">
+                    <i class="fa-solid fa-trophy"></i> 2026 Recap
+                </a>
+                <a class="btn btn-ghost" href="https://www.instagram.com/msalsc/" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-instagram"></i> MSA LSC Instagram
                 </a>
             </div>
         </div>
@@ -84,193 +87,40 @@
         </div>
     </section>
 
-    <!-- HOW TO PARTICIPATE -->
-    <section id="how-to-participate" class="section alt">
+    <!-- 2026 RECAP -->
+    <section id="recap" class="section alt">
         <div class="container">
-            <h2 class="section-title center">How to Attend/Compete at Showdown</h2>
-            <p class="muted center" style="max-width: 700px; margin: 0 auto 40px;">Follow these steps to participate in Showdown 2026</p>
-            
-            <div class="steps-container" style="max-width: 900px; margin: 0 auto;">
-                <div class="step-card card" style="margin-bottom: 24px; padding: 32px; border-left: 4px solid var(--orange);">
-                    <div class="step-number" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(135deg, var(--blue), var(--orange)); color: white; border-radius: 50%; font-weight: 700; margin-bottom: 16px;">1</div>
-                    <h3 style="color: var(--blue); margin: 0 0 12px; font-size: 1.3rem;">Be a Registered Member of UTA MSA</h3>
-                    <p style="color: #334155; margin: 0 0 16px; line-height: 1.6;">You MUST be an official UTA MSA member to compete/attend. Membership is free!</p>
-                    <a class="btn btn-primary" href="/pages/join.html#form" style="display: inline-flex; gap: 8px;">
-                        <i class="fa-solid fa-user-plus"></i> Register for Membership
-                    </a>
-                </div>
+            <h2 class="section-title center">Showdown 2026 Recap</h2>
+            <p class="muted center" style="max-width: 760px; margin: 0 auto 40px;">
+                The 2026 edition of Showdown was hosted at UT Arlington, and MSA at UTA finished the weekend in
+                <strong>3rd place overall</strong>.
+            </p>
 
-                <div class="step-card card" style="margin-bottom: 24px; padding: 32px; border-left: 4px solid var(--orange);">
-                    <div class="step-number" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(135deg, var(--blue), var(--orange)); color: white; border-radius: 50%; font-weight: 700; margin-bottom: 16px;">2</div>
-                    <h3 style="color: var(--blue); margin: 0 0 12px; font-size: 1.3rem;">Fill Out UTA MSA Showdown Interest Form</h3>
-                    <p style="color: #334155; margin: 0 0 16px; line-height: 1.6;">Let us know which competitions you're interested in. Deadline: <strong>Wednesday, January 28th, 2026 @ 11:59 PM</strong></p>
-                    <button class="btn btn-primary showdown-interest-btn" id="showdown-interest-btn" style="display: inline-flex; gap: 8px; cursor: pointer; border: none;">
-                        <i class="fa-solid fa-clipboard-list"></i> Fill Interest Form
-                    </button>
-                    
-                    <div class="showdown-interest-form hidden" id="showdown-interest-form" style="margin-top: 24px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px solid rgba(18, 60, 102, 0.1); overflow-x: hidden; width: 100%;">
-                        <div style="text-align: center; padding: 20px;">
-                            <p style="color: #334155; margin-bottom: 16px;">The form will load below. If it doesn't appear, <a href="https://docs.google.com/forms/d/e/1FAIpQLSegBgjHXQdlCK11U3k9XnMovJ-Evw09L9VeIMBBg9ggQd-gWQ/viewform?usp=header" target="_blank" rel="noopener" style="color: var(--orange); text-decoration: underline;">click here to open it in a new tab</a>.</p>
-                        </div>
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSegBgjHXQdlCK11U3k9XnMovJ-Evw09L9VeIMBBg9ggQd-gWQ/viewform?usp=header" 
-                                width="100%" 
-                                height="1400" 
-                                frameborder="0" 
-                                marginheight="0" 
-                                marginwidth="0"
-                                style="border: none; border-radius: 12px; width: 100%; max-width: 100%;"
-                                loading="lazy"
-                                title="UTA MSA Showdown Interest Form">
-                            Loading…
-                        </iframe>
+            <div class="event-details-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+                <div class="card detail-card" style="text-align: center; padding: 28px; background: linear-gradient(135deg, rgba(18, 60, 102, 0.03), rgba(239, 125, 26, 0.03)); border: 2px solid rgba(18, 60, 102, 0.08);">
+                    <div class="detail-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; background: linear-gradient(135deg, var(--blue), var(--orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-map-marker-alt" style="font-size: 1.8rem; color: white;"></i>
                     </div>
+                    <h3 style="color: #123c66; margin: 0 0 12px; font-size: 1.2rem; font-weight: 700;">Hosted At</h3>
+                    <p style="color: #334155; margin: 0; font-size: 1rem; font-weight: 600;">The University of Texas<br>at Arlington</p>
                 </div>
 
-                <div class="step-card card" style="margin-bottom: 24px; padding: 32px; border-left: 4px solid var(--orange);">
-                    <div class="step-number" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(135deg, var(--blue), var(--orange)); color: white; border-radius: 50%; font-weight: 700; margin-bottom: 16px;">3</div>
-                    <h3 style="color: var(--blue); margin: 0 0 12px; font-size: 1.3rem;">Pay & Register for Showdown with MSA LSC</h3>
-                    <p style="color: #334155; margin: 0 0 16px; line-height: 1.6;">Complete your registration through the official Showdown platform. Deadline: <strong>Saturday, February 14th @ 11:59 PM</strong></p>
-                    <a class="btn btn-primary" href="https://ummahapp.io/events/4718bc54-9f10-4dd6-a31b-10af3309c876" target="_blank" rel="noopener" style="display: inline-flex; gap: 8px;">
-                        <i class="fa-solid fa-credit-card"></i> Register & Pay
-                    </a>
+                <div class="card detail-card" style="text-align: center; padding: 28px; background: linear-gradient(135deg, rgba(18, 60, 102, 0.03), rgba(239, 125, 26, 0.03)); border: 2px solid rgba(18, 60, 102, 0.08);">
+                    <div class="detail-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; background: linear-gradient(135deg, var(--blue), var(--orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-trophy" style="font-size: 1.8rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #123c66; margin: 0 0 12px; font-size: 1.2rem; font-weight: 700;">UTA Result</h3>
+                    <p style="color: #334155; margin: 0; font-size: 1rem; font-weight: 600;">MSA at UTA placed<br>3rd overall</p>
+                </div>
+
+                <div class="card detail-card" style="text-align: center; padding: 28px; background: linear-gradient(135deg, rgba(18, 60, 102, 0.03), rgba(239, 125, 26, 0.03)); border: 2px solid rgba(18, 60, 102, 0.08);">
+                    <div class="detail-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; background: linear-gradient(135deg, var(--blue), var(--orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-brands fa-instagram" style="font-size: 1.8rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #123c66; margin: 0 0 12px; font-size: 1.2rem; font-weight: 700;">For More Info</h3>
+                    <p style="color: #334155; margin: 0; font-size: 1rem; font-weight: 600;">Check out the MSA LSC Instagram for official Showdown updates and info.</p>
                 </div>
             </div>
-
-            <div class="note-box" style="max-width: 900px; margin: 40px auto 0; padding: 24px; background: #fff7ed; border-radius: 12px; border-left: 4px solid var(--orange);">
-                <div style="display: flex; align-items: flex-start; gap: 16px;">
-                    <i class="fa-solid fa-info-circle" style="color: var(--orange); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
-                    <div>
-                        <h4 style="margin: 0 0 8px; color: var(--blue);">Important Note</h4>
-                        <p style="margin: 0; color: #374151; line-height: 1.6;">If you only plan on <strong>attending</strong> and not competing, you may register until <strong>March 26th</strong>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRYOUT SCHEDULES -->
-    <section id="tryout-schedules" class="section alt">
-        <div class="container">
-            <h2 class="section-title center">MSA Tryout Schedules</h2>
-            <p class="muted center" style="max-width: 720px; margin: 0 auto 32px;">Brothers and sisters schedules for Showdown tryouts.</p>
-
-            <div class="tryout-grid">
-                <div class="card schedule-card">
-                    <h3 class="schedule-title">Brothers Tryout Schedule</h3>
-                    <div class="table-wrap">
-                        <table class="schedule-table" aria-label="Brothers Tryout Schedule">
-                            <thead>
-                                <tr>
-                                    <th>Sport</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Location</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Flag Football</td>
-                                    <td>Fri Feb 6th</td>
-                                    <td>4:30 PM</td>
-                                    <td>Doug Russell Park</td>
-                                </tr>
-                                <tr>
-                                    <td>Soccer</td>
-                                    <td>Fri Feb 6th</td>
-                                    <td>6:30 PM</td>
-                                    <td>MAC Fields Complex</td>
-                                </tr>
-                                <tr>
-                                    <td>Volleyball</td>
-                                    <td>Sat Feb 7th</td>
-                                    <td>7:00 PM</td>
-                                    <td>Dar El-Salam</td>
-                                </tr>
-                                <tr>
-                                    <td>Super Smash Bros</td>
-                                    <td>Mon Feb 9th</td>
-                                    <td>4:30 PM</td>
-                                    <td>Central Library Basement</td>
-                                </tr>
-                                <tr>
-                                    <td>Table Tennis</td>
-                                    <td>Mon Feb 9th</td>
-                                    <td>5:00 PM</td>
-                                    <td>MAC Racquetball Court Indoor</td>
-                                </tr>
-                                <tr>
-                                    <td>Basketball</td>
-                                    <td>Mon Feb 9th</td>
-                                    <td>7:00 PM</td>
-                                    <td>Dar El-Salam</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="card schedule-card">
-                    <h3 class="schedule-title">Sisters Tryout Schedule</h3>
-                    <div class="table-wrap">
-                        <table class="schedule-table" aria-label="Sisters Tryout Schedule">
-                            <thead>
-                                <tr>
-                                    <th>Sport</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Location</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Basketball</td>
-                                    <td>Fri Feb 6th</td>
-                                    <td>4 PM</td>
-                                    <td>PEB</td>
-                                </tr>
-                                <tr>
-                                    <td>Pickleball</td>
-                                    <td>Sat Feb 7th</td>
-                                    <td>4:30 PM</td>
-                                    <td>MAC Outdoor Courts</td>
-                                </tr>
-                                <tr>
-                                    <td>Soccer</td>
-                                    <td>Sat Feb 7th</td>
-                                    <td>6:30 PM</td>
-                                    <td>MAC Fields Complex</td>
-                                </tr>
-                                <tr>
-                                    <td>Super Smash Bros</td>
-                                    <td>Mon Feb 9th</td>
-                                    <td>4:30 PM</td>
-                                    <td>Central Library Basement</td>
-                                </tr>
-                                <tr>
-                                    <td>Table Tennis</td>
-                                    <td>Mon Feb 9th</td>
-                                    <td>5:00 PM</td>
-                                    <td>MAC Racquetball Court Indoor</td>
-                                </tr>
-                                <tr>
-                                    <td>Dodgeball</td>
-                                    <td>Wed Feb 11th</td>
-                                    <td>5 PM</td>
-                                    <td>Dar El-Salam</td>
-                                </tr>
-                                <tr>
-                                    <td>Volleyball</td>
-                                    <td>Wed Feb 11th</td>
-                                    <td>6:30 PM</td>
-                                    <td>Dar El-Salam</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <p class="schedule-note">Time &amp; location are subject to change. Check our story for updates.</p>
         </div>
     </section>
 
@@ -305,102 +155,32 @@
                 </div>
                 </div>
                 
-            <!-- Important Deadlines -->
-            <div class="deadlines-section">
-                <h3 class="deadlines-title">Important Deadlines</h3>
-                <ol class="deadlines-timeline">
-                    <li class="timeline-item">
-                        <div class="timeline-dot">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong class="timeline-label">MSA UTA Interest Form</strong>
-                            <span class="timeline-date">Friday, January 23rd @ 11:59 PM CT</span>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-dot">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong class="timeline-label">MSA UTA Membership Registration</strong>
-                            <span class="timeline-date">Wednesday, January 28th @ 11:59 PM CT</span>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-dot">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong class="timeline-label">Roster Deadline</strong>
-                            <span class="timeline-date">Saturday, February 7th @ 11:59 PM CT</span>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-dot">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong class="timeline-label">LSC Individual Registration</strong>
-                            <span class="timeline-date">Saturday, February 14th @ 11:59 PM CT</span>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-dot">
-                            <i class="fa-solid fa-users-between-lines"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <strong class="timeline-label">Mandatory Captains' Meeting</strong>
-                            <span class="timeline-date">Saturday, March 7th @ 4:00 PM CT</span>
-                        </div>
-                    </li>
-                </ol>
+            <div class="note-box" style="max-width: 900px; margin: 40px auto 0; padding: 24px; background: #fff7ed; border-radius: 12px; border-left: 4px solid var(--orange);">
+                <div style="display: flex; align-items: flex-start; gap: 16px;">
+                    <i class="fa-solid fa-circle-info" style="color: var(--orange); font-size: 1.5rem; flex-shrink: 0; margin-top: 2px;"></i>
+                    <div>
+                        <h4 style="margin: 0 0 8px; color: var(--blue);">2026 Highlight</h4>
+                        <p style="margin: 0; color: #374151; line-height: 1.6;">
+                            This year, Showdown was hosted at UT Arlington, and Alhamdulillah MSA at UTA earned
+                            <strong>3rd place overall</strong>.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- MORE INFO -->
     <section id="contact" class="section alt">
         <div class="container center">
-            <h2 class="section-title">Questions or Concerns?</h2>
-            <p class="muted" style="max-width: 600px; margin: 0 auto 40px;">Reach out to our Showdown Coordinators for any questions about registration, competitions, or event details.</p>
-            
-            <div class="coordinators-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 800px; margin: 0 auto 48px;">
-                <div class="card" style="text-align: center; padding: 32px; border: 2px solid rgba(18, 60, 102, 0.08); background: linear-gradient(135deg, rgba(18, 60, 102, 0.02), rgba(239, 125, 26, 0.02));">
-                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--blue), var(--orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fa-solid fa-mars" style="font-size: 2rem; color: white;"></i>
-                    </div>
-                    <h3 style="color: #123c66; margin: 0 0 12px; font-size: 1.2rem;">Brothers Coordinator</h3>
-                    <p style="color: #334155; margin: 0 0 8px; font-weight: 600;">Ahmad Alhusaini</p>
-                    <a href="mailto:aka9795@mavs.uta.edu" style="color: var(--orange); text-decoration: none; font-size: 0.95rem;">
-                        <i class="fa-solid fa-envelope"></i> aka9795@mavs.uta.edu
-                    </a>
-                </div>
-                
-                <div class="card" style="text-align: center; padding: 32px; border: 2px solid rgba(18, 60, 102, 0.08); background: linear-gradient(135deg, rgba(18, 60, 102, 0.02), rgba(239, 125, 26, 0.02));">
-                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--blue), var(--orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fa-solid fa-venus" style="font-size: 2rem; color: white;"></i>
-                    </div>
-                    <h3 style="color: #123c66; margin: 0 0 12px; font-size: 1.2rem;">Sisters Coordinator</h3>
-                    <p style="color: #334155; margin: 0 0 8px; font-weight: 600;">Abrar Sabah</p>
-                    <a href="mailto:ams3109@mavs.uta.edu" style="color: var(--orange); text-decoration: none; font-size: 0.95rem;">
-                        <i class="fa-solid fa-envelope"></i> ams3109@mavs.uta.edu
-                    </a>
-                </div>
-            </div>
-
-            <h3 style="color: var(--blue); margin: 48px 0 24px;">Stay Updated</h3>
-            <p class="muted" style="max-width: 600px; margin: 0 auto 32px;">Follow us for the latest Showdown 2026 updates and announcements!</p>
+            <h2 class="section-title">More Info</h2>
+            <p class="muted" style="max-width: 680px; margin: 0 auto 32px;">
+                For more info, check out the MSA LSC Instagram. They are the organization that hosts Showdown.
+            </p>
             
             <div class="social-links" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a class="btn btn-primary" href="https://www.instagram.com/msaatuta/" target="_blank" rel="noopener" style="display: inline-flex; gap: 8px;">
-                    <i class="fa-brands fa-instagram"></i> @msaatuta
-                </a>
-                <a class="btn btn-ghost" href="mailto:utarlington.msa@gmail.com" style="display: inline-flex; gap: 8px;">
-                    <i class="fa-solid fa-envelope"></i> Email Us
-                </a>
-                <a class="btn btn-ghost" href="https://linktr.ee/utamsa" target="_blank" rel="noopener" style="display: inline-flex; gap: 8px;">
-                    <i class="fa-solid fa-link"></i> Linktree
+                <a class="btn btn-primary" href="https://www.instagram.com/msalsc/" target="_blank" rel="noopener" style="display: inline-flex; gap: 8px;">
+                    <i class="fa-brands fa-instagram"></i> @msalsc
                 </a>
             </div>
         </div>
@@ -428,30 +208,6 @@
     </script>
 
     <script src="../script/navBar.js"></script>
-
-
-    <!-- Showdown Interest Form Toggle Logic -->
-    <script>
-        const showdownInterestBtn = document.getElementById('showdown-interest-btn');
-        const showdownInterestForm = document.getElementById('showdown-interest-form');
-
-        if (showdownInterestBtn && showdownInterestForm) {
-            showdownInterestBtn.addEventListener('click', () => {
-                showdownInterestForm.classList.toggle('hidden');
-                const isHidden = showdownInterestForm.classList.contains('hidden');
-                showdownInterestBtn.innerHTML = isHidden 
-                    ? '<i class="fa-solid fa-clipboard-list"></i> Fill Interest Form'
-                    : '<i class="fa-solid fa-times"></i> Hide Form';
-                
-                // Scroll to form if opening
-                if (!isHidden) {
-                    setTimeout(() => {
-                        showdownInterestForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }, 100);
-                }
-            });
-        }
-    </script>
 
   <script src="../script/loader.js"></script>
 </body>
