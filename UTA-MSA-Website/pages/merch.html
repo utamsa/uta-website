@@ -260,9 +260,12 @@
     </section>
   </main>
 
-  <div class="sticky-order-bar">
+  <div class="sticky-order-bar" id="sticky-order-bar" aria-label="MSA merch checkout shortcut">
     <p>MSA Merch Checkout</p>
-    <a href="https://forms.gle/pZYCUUKpE8dk6qTh9" target="_blank" rel="noreferrer">Order Now</a>
+    <div class="sticky-order-actions">
+      <a href="https://forms.gle/pZYCUUKpE8dk6qTh9" target="_blank" rel="noreferrer">Order Now</a>
+      <button type="button" class="sticky-order-close" id="sticky-order-close" aria-label="Close merch checkout popup">&times;</button>
+    </div>
   </div>
 
   <div data-include="./fragments/footer.html"></div>
@@ -287,5 +290,22 @@
 
   <script src="../script/navBar.js"></script>
   <script src="../script/loader.js"></script>
+  <script>
+    (() => {
+      const stickyOrderBar = document.getElementById('sticky-order-bar');
+      const stickyOrderClose = document.getElementById('sticky-order-close');
+
+      if (!stickyOrderBar || !stickyOrderClose) return;
+
+      requestAnimationFrame(() => {
+        stickyOrderBar.classList.add('is-visible');
+      });
+
+      stickyOrderClose.addEventListener('click', () => {
+        stickyOrderBar.classList.remove('is-visible');
+        stickyOrderBar.classList.add('is-hidden');
+      });
+    })();
+  </script>
 </body>
 </html>

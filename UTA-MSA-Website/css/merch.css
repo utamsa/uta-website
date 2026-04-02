@@ -495,7 +495,7 @@ a {
   position: fixed;
   left: 50%;
   bottom: 18px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(28px);
   width: min(760px, calc(100vw - 24px));
   padding: 12px 14px 12px 18px;
   border-radius: 999px;
@@ -507,6 +507,37 @@ a {
   gap: 14px;
   box-shadow: 0 20px 44px rgba(12, 16, 22, 0.28);
   z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease,
+    visibility 0s linear 0.65s;
+}
+
+.sticky-order-bar.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease,
+    visibility 0s linear 0s;
+}
+
+.sticky-order-bar.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.sticky-order-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .sticky-order-bar p {
@@ -521,6 +552,30 @@ a {
   min-height: 44px;
   padding: 0 18px;
   border-radius: 16px;
+}
+
+.sticky-order-close {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.12s ease, border-color 0.2s ease;
+}
+
+.sticky-order-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+.sticky-order-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
 }
 
 @media (max-width: 1100px) {
@@ -626,8 +681,18 @@ a {
     flex-direction: column;
   }
 
+  .sticky-order-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .sticky-order-bar a {
     width: 100%;
+  }
+
+  .sticky-order-close {
+    width: 100%;
+    border-radius: 16px;
   }
 }
 
