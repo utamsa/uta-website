@@ -20,7 +20,7 @@
 
   <!-- 🟩 Open Graph / Social Media Cards -->
   <meta property="og:title" content="Join - MSA at UTA">
-  <meta property="og:description" content="Become a member of MSA at UTA. Free membership and officer applications available. Join us in building faith and community.">
+  <meta property="og:description" content="Become a member of MSA at UTA and explore 2026-2027 board applications. Join us in building faith and community.">
   <meta property="og:image" content="https://msaatuta.org/assets/MSA-Website-card.png">
   <meta property="og:url" content="https://msaatuta.org/join">
   <meta property="og:type" content="website">
@@ -28,12 +28,12 @@
   <!-- 🟦 Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Join - MSA at UTA">
-  <meta name="twitter:description" content="Become a member of MSA at UTA. Free membership and officer applications available. Join us in building faith and community.">
+  <meta name="twitter:description" content="Become a member of MSA at UTA and explore 2026-2027 board applications. Join us in building faith and community.">
   <meta name="twitter:image" content="https://msaatuta.org/assets/MSA-Website-card.png">
   
   <!-- 📱 SMS / iMessage Preview -->
   <meta itemprop="name" content="Join - MSA at UTA">
-  <meta itemprop="description" content="Become a member of MSA at UTA. Free membership and officer applications available. Join us in building faith and community.">
+  <meta itemprop="description" content="Become a member of MSA at UTA and explore 2026-2027 board applications. Join us in building faith and community.">
   <meta itemprop="image" content="https://msaatuta.org/assets/MSA-Website-card.png">
 
   <link rel="stylesheet" href="../css/navbar.css" />
@@ -58,6 +58,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#form"><i class="fa-solid fa-user-plus"></i> Join now</a>
+          <a class="btn btn-primary" href="#applications"><i class="fa-solid fa-file-signature"></i> Board applications</a>
           <a class="btn btn-ghost" href="#faq"><i class="fa-solid fa-circle-question"></i> How it works</a>
         </div>
       </div>
@@ -86,6 +87,64 @@
           <p class="tiny muted center">Having issues? Email us at
             <a href="mailto:utarlington.msa@gmail.com">utarlington.msa@gmail.com</a>.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOARD APPLICATIONS -->
+    <section id="applications" class="section applications-section">
+      <div class="container grid-single">
+        <div class="card application-card">
+          <div class="application-header center">
+            <span class="application-badge">
+              <i class="fa-solid fa-star"></i>
+              2026-2027 Leadership Opportunities
+            </span>
+            <h2 class="section-title">Board Applications Are Open</h2>
+            <p class="muted application-subhead">
+              Want to help shape the next year of MSA at UTA? Our board works behind the scenes and on the front lines to plan events,
+              build community, support students, and keep the organization moving with ihsan and purpose.
+            </p>
+          </div>
+
+          <div class="application-info-box">
+            <div class="info-item">
+              <i class="fa-solid fa-users"></i>
+              <div>
+                <strong>Serve the Community</strong>
+                <p>Support programming, outreach, collaboration, and student life across the MSA.</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-lightbulb"></i>
+              <div>
+                <strong>Grow as a Leader</strong>
+                <p>Build real experience in teamwork, planning, communication, and service-driven leadership.</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-calendar-check"></i>
+              <div>
+                <strong>2026-2027 Board Cycle</strong>
+                <p>The application will open in a new tab and redirect you to the official Google Form.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="application-actions">
+            <a class="btn btn-primary application-btn" href="https://forms.gle/iVnZHnjwg9tYGvVW6" target="_blank" rel="noopener">
+              <i class="fa-solid fa-file-signature"></i> Apply for Board
+            </a>
+          </div>
+
+          <div class="application-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+              If leadership has been on your mind, take the step. You can still complete the membership form above and then submit your
+              board application here:
+              <a href="https://forms.gle/iVnZHnjwg9tYGvVW6" target="_blank" rel="noopener">2026-2027 Board Application</a>.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -154,29 +213,6 @@
   </script>
 
   <script src="../script/navBar.js"></script>
-
-  <!-- Application Form Toggle Logic -->
-  <script>
-    const applicationBtn = document.getElementById('application-btn');
-    const applicationForm = document.getElementById('application-form');
-
-    if (applicationBtn && applicationForm) {
-      applicationBtn.addEventListener('click', () => {
-        applicationForm.classList.toggle('hidden');
-        const isHidden = applicationForm.classList.contains('hidden');
-        applicationBtn.innerHTML = isHidden 
-          ? '<i class="fa-solid fa-file-pen"></i> Apply Now'
-          : '<i class="fa-solid fa-times"></i> Hide Form';
-        
-        // Scroll to form if opening
-        if (!isHidden) {
-          setTimeout(() => {
-            applicationForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
-      });
-    }
-  </script>
   <script src="../script/loader.js"></script>
 </body>
 </html>
