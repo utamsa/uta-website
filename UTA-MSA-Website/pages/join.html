@@ -212,6 +212,51 @@
     })();
   </script>
 
+  <script>
+    (() => {
+      const scrollToHash = (hash, updateHistory = true) => {
+        if (!hash || hash === '#') return;
+
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        if (updateHistory) history.pushState(null, '', hash);
+
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        if (href.startsWith('#')) {
+          event.preventDefault();
+          scrollToHash(href);
+          return;
+        }
+
+        const url = new URL(link.href, window.location.href);
+        const samePage = url.origin === window.location.origin && url.pathname === window.location.pathname;
+
+        if (samePage && url.hash) {
+          event.preventDefault();
+          scrollToHash(url.hash);
+        }
+      });
+
+      window.addEventListener('load', () => {
+        if (!window.location.hash) return;
+
+        requestAnimationFrame(() => {
+          scrollToHash(window.location.hash, false);
+        });
+      });
+    })();
+  </script>
+
   <script src="../script/navBar.js"></script>
   <script src="../script/loader.js"></script>
 </body>

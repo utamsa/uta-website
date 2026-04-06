@@ -12,6 +12,7 @@
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--header-h) + 16px); }
 body{
   margin:0;
   padding-top:var(--header-h);
@@ -22,6 +23,7 @@ body{
 }
 
 .section{ padding:60px 20px; }
+[id]{ scroll-margin-top:calc(var(--header-h) + 16px); }
 .section.alt{ background:var(--bg-alt); }
 .container{ width:min(1200px, 92vw); margin-inline:auto; }
 .center{ text-align:center; }
