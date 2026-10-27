@@ -1,0 +1,139 @@
+<!-- QURAN NIGHT POP UP -->
+<style>
+  @keyframes qnFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes qnSlideUp {
+    from { transform: translateY(14px) scale(0.96); }
+    to { transform: translateY(0) scale(1); }
+  }
+  .qn-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 16, 22, 0.72);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 12px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .qn-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: qnFadeIn 0.3s ease forwards;
+  }
+  .qn-popup-card {
+    position: relative;
+    background: linear-gradient(180deg, #ffffff, #fff8f0);
+    border: 1px solid rgba(18, 60, 102, 0.15);
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    padding: 16px 18px;
+    text-align: center;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+  }
+  .qn-popup-overlay.active .qn-popup-card {
+    animation: qnSlideUp 0.3s ease forwards;
+  }
+  .qn-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(18, 60, 102, 0.08);
+    color: #123c66;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .qn-popup-close:hover {
+    background: #123c66;
+    color: #ffffff;
+  }
+  .qn-popup-badge {
+    display: inline-block;
+    background: rgba(239, 125, 26, 0.14);
+    color: #ef7d1a;
+    font-weight: 800;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .qn-popup-flyer {
+    max-width: 100%;
+    width: auto;
+    max-height: 45vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 0 auto 10px;
+    display: block;
+  }
+  .qn-popup-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #123c66;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+  .qn-popup-meta {
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+  .qn-popup-note {
+    color: #475569;
+    font-size: 0.82rem;
+    margin: 4px 0 12px;
+  }
+</style>
+
+<div 
+  id="qn-popup" 
+  class="qn-popup-overlay active" 
+  role="dialog" 
+  aria-modal="true" 
+  aria-labelledby="qn-popup-title"
+  onclick="if (event.target === this) this.classList.remove('active')"
+>
+  <div class="qn-popup-card">
+    <button 
+      type="button" 
+      class="qn-popup-close" 
+      id="qn-popup-close" 
+      aria-label="Close pop-up"
+      onclick="document.getElementById('qn-popup').classList.remove('active')"
+    >&times;</button>
+    <span class="qn-popup-badge">Upcoming Event</span>
+    <img src="/assets/events/QuranNight2026.JPG" alt="Quran Night Flyer" class="qn-popup-flyer" />
+    <h2 id="qn-popup-title" class="qn-popup-title">In a world full of darkness, let the Quran be your light</h2>
+    <p class="qn-popup-meta">Friday, October 30th • 5:00 PM</p>
+    <p class="qn-popup-meta">E.H. Hereford University Center</p>
+    <p class="qn-popup-note">Dinner will be provided by RSVP only!</p>
+    <div style="display: flex; justify-content: center;">
+      <a href="https://pci.jotform.com/form/262899057979181" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        RSVP Now!
+      </a>
+    </div>
+  </div>
+</div>

@@ -14,5 +14,8 @@
 /home       /pages/home.html         200
 /qurannight /pages/qurannight.html  200
 
+# Allow navbar and footer fragments to load
+/fragments/* /pages/fragments/:splat 200
+
 # Catch-all for any other pages
 /*          /pages/:splat.html       200
